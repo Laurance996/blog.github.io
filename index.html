@@ -1,0 +1,3619 @@
+<!DOCTYPE html>
+<html>
+  <!-- meta/link... -->
+  
+
+
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+  <title>Laurance&#39;s Note Blogggggg</title>
+
+  <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/blog.github.io/favicon2.ico">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
+  <link href="https://unpkg.com/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="/blog.github.io/js/swiper/swiper@5.4.1.min.css" rel="stylesheet">
+  
+  
+  
+  
+<link rel="stylesheet" href="/blog.github.io/css/animate.min.css">
+
+  
+<link rel="stylesheet" href="/blog.github.io/css/style.css">
+
+  
+  
+    <link href="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" rel="stylesheet">
+  
+  
+  <style>
+        @media (max-width: 992px) {
+            #waifu {
+                display: none;
+            }
+        }
+    </style>
+    <script defer src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+
+    
+    
+    <!-- 依赖于jquery和vue -->
+    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@2.6.11/dist/vue.min.js"></script>
+
+    <!-- import link -->
+    
+        
+            
+        
+            
+        
+    
+    <!-- import script -->
+    
+        
+            
+        
+            
+        
+    
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+  
+  <!-- 预加载动画 -->
+  
+  
+  <div class="preloader_6" id="loader">
+  <div class="loader"></div>
+</div>
+  <script>
+    var endLoading = function () {
+      document.body.style.overflow = 'auto';
+      document.getElementById('loader').classList.add("loaded");
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+  </script>
+
+
+  <body>
+    <!-- 判断是否为暗黑风格 -->
+    <!-- 判断是否为黑夜模式 -->
+<script defer>
+  let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+
+  if (isDark) {
+    $(document.body).addClass('darkModel');
+  }
+</script>
+
+    <!-- 需要在上面加载的js -->
+    <script>
+  function loadScript(src, cb) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+
+  //https://github.com/filamentgroup/loadCSS
+  var loadCSS = function (src) {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  };
+
+</script> 
+
+<!-- 轮播图所需要的js -->
+<script src="/blog.github.io/js/swiper/swiper.min.js"></script>
+<script src="/blog.github.io/js/swiper/vue-awesome-swiper.js"></script>
+<script src="/blog.github.io/js/swiper/swiper.animate1.0.3.min.js"></script>
+
+<script type="text/javascript">
+  Vue.use(window.VueAwesomeSwiper)
+</script>
+
+
+  <script src="/blog.github.io/js/vue-typed-js/index.js"></script>
+
+
+<!-- 首页的公告滚动插件的js需要重新加载 -->
+<script src="/blog.github.io/js/vue-seamless-scroll/index.js"></script>
+
+<!-- 打字机效果js -->
+<script src="https://unpkg.com/typed.js@2.0.11"></script>
+
+
+    <div id="safearea">
+      <main class="main" id="pjax-container">
+        <!-- 头部导航 -->
+        
+<header class="header  " 
+  id="navHeader"
+  style="position: fixed;
+  left: 0; top: 0; z-index: 10;width: 100%;"
+>
+  <div class="header-content">
+    <div class="bars">
+      <div id="appDrawer" class="sidebar-image">
+  <div class="drawer-box-icon">
+    <i class="fas fa-bars" aria-hidden="true" @click="showDialogDrawer"></i>
+  </div>
+  
+  <transition name="fade">
+    <div class="drawer-box_mask" v-cloak style="display: none;" v-show="visible" @click.self="cancelDialogDrawer">
+    </div>
+  </transition>
+  <div class="drawer-box" :class="{'active': visible}">
+    <div class="drawer-box-head bg-color">
+      <img class="drawer-box-head_logo lazyload placeholder" src="/blog.github.io/medias/favicon.png" class="lazyload placeholder" data-srcset="/blog.github.io/medias/favicon.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+      <h3 class="drawer-box-head_title">Laurance&#39;s Note Blogggggg</h3>
+      <h5 class="drawer-box-head_desc"></h5>
+    </div>
+    
+    <div class="drawer-box-content">
+      <ul class="drawer-box-content_menu">
+        
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/blog.github.io/" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">Home</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/blog.github.io/archives" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">Archives</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/blog.github.io/tags" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">IT-Tools</span>
+                </a>
+              
+            </li>
+          
+            <li class="drawer-box-content_item" style="position: relative;">
+              
+                <a href="/blog.github.io/categories" class="drawer-menu-item-link">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">Categories</span>
+                </a>
+              
+            </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDrawer',
+    data: {
+      visible: false,
+      top: 0,
+      openArr: [],
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      isOpen(index) {
+        if (this.openArr.includes(index)) {
+          return true;
+        } else {
+          return false;
+        }
+      },
+      openOrCloseMenu(curIndex) {
+        const index = this.openArr.indexOf(curIndex);
+        if (index !== -1) {
+          this.openArr.splice(index, 1);
+        } else {
+          this.openArr.push(curIndex);
+        }
+      },
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'width: 100%; height: 100%;overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      }
+    },
+    created() {}
+  })
+</script>
+
+    </div>
+    <div class="blog-title" id="author-avatar">
+      
+        <div class="avatar">
+          <img src="/blog.github.io/medias/favicon.png" class="lazyload placeholder" data-srcset="/blog.github.io/medias/favicon.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="logo">
+        </div>
+      
+      <a href="/blog.github.io/" class="logo">Laurance&#39;s Note Blogggggg</a>
+    </div>
+    <nav class="navbar">
+      <ul class="menu">
+        
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/blog.github.io/" class="menu-item-link" title="Home">
+                  
+                    <i class="fas fa-home" aria-hidden="true"></i>
+                  
+                  <span class="name">Home</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/blog.github.io/archives" class="menu-item-link" title="Archives">
+                  
+                    <i class="fas fa-archive" aria-hidden="true"></i>
+                  
+                  <span class="name">Archives</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/blog.github.io/tags" class="menu-item-link" title="IT-Tools">
+                  
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                  
+                  <span class="name">IT-Tools</span>
+                </a>
+              
+            </li>
+          
+            <li class="menu-item" style="position: relative;">
+              
+                <a href="/blog.github.io/categories" class="menu-item-link" title="Categories">
+                  
+                    <i class="fas fa-bookmark" aria-hidden="true"></i>
+                  
+                  <span class="name">Categories</span>
+                </a>
+              
+            </li>
+          
+        
+      </ul>
+      
+      
+        <div id="appSearch">
+  <div class="search"  @click="showDialog()"><i class="fas fa-search" aria-hidden="true"></i></div>
+  <transition name="fade">
+    <div class="message-box_wrapper" style="display: none;" v-cloak v-show="dialogVisible" @click.self="cancelDialogVisible()">
+      <div class="message-box animated bounceInDown">
+        <h2>
+          <span>
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <span class="title">Search</span>
+          </span>
+          <i class="fas fa-times close" pointer style="float:right;" aria-hidden="true" @click.self="cancelDialogVisible()"></i>
+        </h2>
+        <form class="site-search-form">
+          <input type="text"
+            placeholder="Please enter keywords"
+            id="local-search-input" 
+            @click="getSearchFile()"
+            class="st-search-input"
+            v-model="searchInput"
+          />
+        </form>
+        <div class="result-wrapper">
+          <div id="local-search-result" class="local-search-result-cls"></div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+<script src="/blog.github.io/js/local_search.js"></script>
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appSearch',
+    data: {
+      dialogVisible: false,
+      searchInput: '',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+      window.addEventListener('pjax:complete', () => {
+        this.cancelDialogVisible();
+      })
+    },
+    methods: {
+      showDialog() {
+        this.dialogVisible = true;
+        // 防止页面滚动，只能让弹框滚动
+        this.top = $(document).scrollTop()
+        body.style.cssText = 'overflow: hidden;';
+      },
+      getSearchFile() {
+        if (!this.searchInput) {
+          getSearchFile("/blog.github.io/search.xml");
+        }
+      },
+      cancelDialogVisible() {
+        this.dialogVisible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+    },
+    created() {}
+  })
+</script>
+<!-- 解决刷新页面闪烁问题，可以在元素上添加display: none, 或者用vue.extend方法，详情：https://blog.csdn.net/qq_31393401/article/details/81017912 -->
+<!-- 下面是搜索基本写法 -->
+<!-- <script type="text/javascript" id="local.search.active">
+  var inputArea = document.querySelector("#local-search-input");
+  inputArea.onclick   = function(){ getSearchFile(); this.onclick = null }
+  inputArea.onkeydown = function(){ if(event.keyCode == 13) return false }
+</script> -->
+
+      
+
+    </nav>
+  </div>
+  
+  
+</header>
+        <!-- 内容区域 -->
+        
+  <!-- 首页轮播 -->
+  
+
+  <link href="/blog.github.io/js/vue-typed-js/index.css" rel="stylesheet">
+
+
+
+
+
+
+<div class="swiper-length" style="display: none;">0</div>
+<div id="appSwiper"
+  class="swiper-no-swiping"
+  @mouseenter="stopAutoPlay()" 
+  @mouseleave="startAutoPlay()"
+>
+  <swiper v-cloak ref="mySwiper" :options="swiperOptions" @slideChangeTransitionEnd="slideChangeTransitionEnd">
+    
+      <swiper-slide>
+        <div class="item swiper-lazy" data-background="https://s2.loli.net/2024/10/25/VQMvwcGeTJlYa8H.jpg" style="background-size: 300000px; 
+          background-position: left center;" style="position: relative;">
+          <div class="swiper-bgmask" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;"></div>
+            <div class="flag">
+              
+              <div class="img-mask swiper-lazy swiper-default-bgImg" data-background="https://s2.loli.net/2024/10/25/VQMvwcGeTJlYa8H.jpg" style="height: 100%; background-size: cover; 
+                background-position: center center;">
+                <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>   
+              </div>
+              <div class="flag-text">
+                <div class="flag-text-content">
+                  <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
+                  
+                      <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
+                    
+                </div>
+                <div style="display: flex;" class="flag-text-btns">
+                  
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+      </swiper-slide>
+    
+  </swiper>
+  
+    <div id="scroll-down" @click="toPostContent()">
+      <a href="javascript:;">
+        <i class="fas fa-angle-down scroll-down-effects"></i>
+      </a>
+    </div>
+  
+  <canvas id="header_canvas"style="position:absolute;bottom:0;width:100%;pointer-events:none;"></canvas>
+    
+</div>
+
+
+
+<script>
+  var autoplay = JSON.parse('true');
+  var delay = '5000';
+  var loop = JSON.parse('true') ? false : JSON.parse('true');
+  var effect = 'slide';
+  var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
+  var defaultDesc = '';
+  defaultDesc = defaultDesc.split(',');
+  var defaultDescTypedLoop = JSON.parse('true');
+  var vm = new Vue({
+    el: '#appSwiper',
+    data: {
+      defaultDesc: defaultDesc,
+      defaultDescTypedLoop,
+      swiperOptions: {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true // 允许点击小圆点跳转
+        },
+        loop: loop ? true : false,
+        effect, // fade
+        autoplay: (autoplay && swiperLength > 1) ? {
+  　　　　delay,
+  　　　　disableOnInteraction: false // 手动切换之后继续自动轮播
+    　　} : false,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        lazy: {
+          loadPrevNext: true,
+        },
+        on:{
+          init: function() {
+            swiperAnimateCache(this); //隐藏动画元素 
+            swiperAnimate(this); //初始化完成开始动画
+          }, 
+          slideChangeTransitionEnd: function(){ 
+            swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          } 
+        }
+        // Some Swiper option/callback...
+      }
+    },
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.$swiper
+      }
+    },
+    mounted() {
+      // console.log('Current Swiper instance object', this.swiper)
+      // this.swiper.slideTo(0, 1000, false)
+    },
+    methods: {
+      stopAutoPlay() {
+        (autoplay && swiperLength > 1) && this.swiper.autoplay.stop();
+      },
+      startAutoPlay() {
+        (autoplay && swiperLength > 1) && this.swiper.autoplay.start();
+      },
+      slideChangeTransitionEnd() {
+        console.log('1');
+      },
+      toPostContent() {
+        const fullHeight = $(window).height() - 60;
+        $('html,body').animate({scrollTop: fullHeight},500);
+      }
+    },
+    created() {}
+  })
+</script>
+
+<style>
+#appSwiper {
+  position: relative;
+  user-select: none;
+  overflow: hidden;
+  font-family: Titillium Web,'PingFang SC','Hiragino Sans GB','Microsoft JhengHei','Microsoft YaHei',sans-serif;
+}
+.default-excerpt {
+  font-size: 1.6em;
+  margin-top: 1em;
+  color: #eee;
+}
+.bottom-one-btn {
+  margin-top: 15px;
+}
+.swiper-container {
+  overflow: hidden;
+  z-index: 0;
+}
+.swiper-slide {
+  height: 350px;
+  position: relative;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  padding: 10px 10px;
+  transition: background 0.2s;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.swiper-slide .item {
+  width: 100%;
+  height: 100%;
+}
+.flag {
+  position: relative;
+  width: 70%;
+  margin: 0 auto;
+  color: #ffffff;
+  height: 100%;
+  background: #000;
+}
+.flag img {
+  min-height: 100%;
+}
+.flag-text {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  width: 80%;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 9999;
+}
+.flag-text .title {
+  font-size: 1.8em;
+}
+.flag-text .title a {
+  color: #fff;
+  transition: color 0.3s;
+}
+.flag-text .title a:hover {
+  color: rgba(66, 185, 133, 0.8);
+}
+.flag-text .excerpt {
+  color: #eee;
+  width: 70%;
+  line-height: 30px;
+  height: 150px;
+  margin-top: 2%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background-color: #42b983;
+}
+.img-mask {
+  opacity:0.6; filter: alpha(opacity=60);
+}
+.flag-text .read-more {
+  margin-bottom: 30px;
+  padding: 5px 15px;
+  color: #ffffff;
+  border-radius: 20px;
+}
+#scroll-down {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5em;
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+}
+#scroll-down a {
+  color: #fff;
+}
+@-webkit-keyframes rightan
+  {
+  
+  0%
+  {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-30px);
+    opacity: 1;
+  }
+  100%
+  {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+}
+.scroll-down-effects {
+  animation: rightan 1.5s infinite;
+}
+/* 当头部导航设置为背景透明的时候 */
+.swiper-slide {
+  height: 400px;
+}
+.flag-text {
+  top: 80px;
+}
+
+@media (min-width: 992px) {
+  .swiper-button-prev {
+    margin-left: 15%;
+    transform: translateX(-180%);
+  }
+  .swiper-button-next {
+    margin-right: 15%;
+    transform: translateX(180%);
+  }
+  .flag-text .title {
+    width: 80%;
+    line-height: 35px;
+    max-height: 70px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+@media screen and (max-width: 1200px) { 
+  .flag {
+    width: 80%;
+  }
+  .swiper-button-prev {
+    margin-left: 10%;
+    transform: translateX(-180%);
+  }
+  .swiper-button-next {
+    margin-right: 10%;
+    transform: translateX(180%);
+  }
+}
+@media (max-width: 992px) {
+  .flag {
+    width: 100%;
+  }
+  .flag-text .title {
+    font-size: 1.5em;
+    margin-top: 50px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .flag-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .flag-text .excerpt {
+    width: 100%;
+    line-height: 25px;
+    height: 125px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+  .flag-text .read-more {
+    margin-bottom: 80px;
+  }
+}
+@media (max-width: 992px) and (min-width: 551px) {
+  .flag-text .excerpt {
+    width: 70%;
+  }
+}
+@media (max-width: 551px) {
+  .swiper-slide {
+    height: 250px;
+  }
+  .flag-text .title {
+    line-height: 30px;
+    max-height: 60px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .flag-text .excerpt {
+    font-size: 1em;
+    line-height: 20px;
+    height: 80px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+  .flag-text .excerpt { 
+    margin-top: 10px;
+  }
+  .flag-text .read-more {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    transform: scale(0.5);
+  }
+  .swiper-button-prev {
+    left: 0;
+  }
+  .swiper-button-next {
+    right: 0;
+  }
+}
+/* 当头部导航设置为背景透明的时候 */
+  @media (max-width: 992px) {
+    .flag-text {
+      top: 60px;
+      height: 80%;
+    }
+  }
+  @media (max-width: 551px) {
+    .swiper-slide {
+      height: 310px;
+    }
+  }
+
+/* 文字或者按钮居中显示 */
+
+  .flag-text {
+    left: 10%;
+  }
+  .flag-text .flag-text-content {
+    width: 100%;
+    text-align: center;
+  }
+  .flag-text .title {
+    width: 100%;
+    text-align: center;
+  }
+  .flag-text .excerpt { 
+    width: 100%;
+    text-align: center;
+  }
+  .bottom-one-btn {
+    display: flex;
+    justify-content: center;
+  }
+  .default-excerpt {
+    display: flex;
+    justify-content: center;
+    font-size: 1.6em;
+  }
+  .flag-text-btns {
+    justify-content: center;
+  }
+  @media (min-width: 992px) {
+    .flag-text .excerpt {
+      line-height: 30px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 5;
+      overflow: hidden;
+    }
+  }
+  @media (max-width: 992px) {
+    .flag-text {
+      margin-left: 0;
+      transform: translateX(0);
+    }
+  }
+
+
+
+
+/* 全屏显示 */
+
+  .flag {
+    width: 100%;
+  }
+  .swiper-slide {
+    height: 100vh;
+  }
+  .flag-text {
+    top: 50%;
+    left: 15%;
+    transform: translateY(-50%);
+    width: 70%;
+    height: auto;
+  }
+  .flag-text .title {
+    font-size: 2.8em;
+    line-height: 1.5em;
+    max-height: none;
+  }
+  .flag-text .excerpt {
+    font-size: 1.25em;
+    height: 150px;
+  }
+  .flag-text .read-more {
+    margin-top: 10px;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    margin-top: -60px!important;
+  }
+  .swiper-btn-color,
+  .swiper-btn-color2 {
+    background-color: transparent;
+    border: 1px solid #fff;
+  }
+  .swiper-btn-color:hover,
+  .swiper-btn-color2:hover {
+    background-color: rgba(66, 185, 133, 0.8);
+    border: 1px solid rgba(66, 185, 133, 0.8)!important;
+  }
+  .flag-text-btns {
+    justify-content: center;
+  }
+  .swiper-button-prev {
+    margin-left: 10px;
+    transform: translateX(0);
+    border-radius: 50%;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+  }
+  .swiper-button-next {
+    margin-right: 10px;
+    transform: translateX(0);
+    border-radius: 50%;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+  }
+  .swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 1.2em;
+  }
+  @media (min-width: 992px) {
+    .flag-text .excerpt {
+      line-height: 35px;
+      height: 175px;
+    }
+    .default-excerpt {
+      min-height: 150px;
+    }
+    .typed-element {
+      align-items: unset;
+    }
+  }
+  @media (max-width: 992px) {
+    .flag-text {
+      margin-left: 0;
+      height: 60%;
+      top: 55%;
+    }
+    .flag-text .title {
+      font-size: 2.4em;
+      margin-top: 0;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+    .flag-text .excerpt {
+      line-height: 35px;
+      height: 185px;
+    }
+    .flag-text .read-more {
+      margin-top: 20px;
+    }
+  }
+  @media (max-width: 551px) {
+    .flag-text {
+      height: 60%;
+    }
+    .flag-text .title {
+      font-size: 2.2em;
+    }
+    .flag-text .excerpt {
+      line-height: 30px;
+    }
+    .flag-text .read-more {
+      margin-top: 50px;
+      padding: 10px 30px;
+    }
+    .swiper-button-prev {
+      margin-left: 0;
+    }
+    .swiper-button-next {
+      margin-right: 0;
+    }
+    .default-excerpt {
+      margin-top: 1em;
+    }
+  }
+
+
+/* video */
+.swiper-video {
+  width: 100%;
+  height: 100%;
+}
+.swiper-video video {
+  pointer-events: none;
+}
+.swiper-video-maskBox{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.2;
+  z-index: 1;
+}
+@media (min-width: 992px) {
+  
+    .swiper-video {
+      display: none;
+    }
+    .swiper-default-bgImg {
+      display: block;  
+    }
+  
+}
+@media (max-width: 992px) {
+  .swiper-video {
+    display: none;
+  }
+  .swiper-default-bgImg {
+    display: block;  
+  }
+}
+/* video-end */
+</style>
+
+
+<div id="l_main">
+  <div class="l_content">
+    <!-- 自定义的内容 -->
+    
+  
+
+    <!-- 首页座右铭 -->
+    
+  <div class="motto">
+      <h3 class="motto-title"> 구글 번역을 사용하여 몰래 당신을 잡았습니다</h3>
+      <div class="motto-content">
+        <p>
+            
+        </p> 
+      </div>
+  </div>
+
+    <!-- 首页公告 -->
+    
+    <!-- 首页文章置顶 -->
+    
+
+
+<div class="topArticle reveal">
+	<h3><i class="fas fa-thumbs-o-up" aria-hidden="true"></i>Recommend Articles</h3>
+	<div class="articles">
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+	</div>
+</div>
+
+
+    <div class="bg-floor" id="home-bg-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+    <!-- 每一篇文章卡片 -->
+    <!-- hash算法 -->
+
+<section class="posts">
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-09-17</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2024/09/17/testtest/">testtest</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2024/09/17/testtest/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+testtest
+
+😯 😯😯😯😯😯😯😯😯😯😯😯😯😯
+😎 😎😎😎😎😎😎😎😎😎😎😎😎😎
+😍 😍😍😍😍😍😍😍😍😍😍😍😍😍
+😛 😛😛😛😛😛😛😛😛
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2024/09/17/testtest/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2024/09/17/testtest/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-06-02</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2024/06/02/Windows-%E4%BD%BF%E7%94%A8PSW%E6%9F%A5%E8%A9%A2%E8%B7%AF%E5%BE%91%E4%B8%8B%E7%9A%84%E7%9B%AE%E9%8C%84%E5%A4%A7%E5%B0%8F/">Windows-使用PSW查詢路徑下的目錄大小</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Windows/" rel="tag">Windows</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Windows/">Windows</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2024/06/02/Windows-%E4%BD%BF%E7%94%A8PSW%E6%9F%A5%E8%A9%A2%E8%B7%AF%E5%BE%91%E4%B8%8B%E7%9A%84%E7%9B%AE%E9%8C%84%E5%A4%A7%E5%B0%8F/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            Windows - 使用 PSW查詢路徑下的目錄大小
+
+1#### WIN + X +A  -&gt;&gt;&gt;&gt; 叫出 PSW
+
+
+
+1cd 至該路徑
+
+1將已下代碼貼上
+
+
+
+
+**
+123456789101112Get-C
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2024/06/02/Windows-%E4%BD%BF%E7%94%A8PSW%E6%9F%A5%E8%A9%A2%E8%B7%AF%E5%BE%91%E4%B8%8B%E7%9A%84%E7%9B%AE%E9%8C%84%E5%A4%A7%E5%B0%8F/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2024/06/02/Windows-%E4%BD%BF%E7%94%A8PSW%E6%9F%A5%E8%A9%A2%E8%B7%AF%E5%BE%91%E4%B8%8B%E7%9A%84%E7%9B%AE%E9%8C%84%E5%A4%A7%E5%B0%8F/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-03-03</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2024/03/03/Linux-%E5%B0%87centos-home%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E8%BD%89%E7%A7%BB%E8%87%B3centos-root%E5%BA%95%E4%B8%8B/">Linux - 將 CentOS-home 硬碟空間轉移至 CentOS-root 底下</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Mount/" rel="tag">Mount</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Linux/">Linux</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2024/03/03/Linux-%E5%B0%87centos-home%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E8%BD%89%E7%A7%BB%E8%87%B3centos-root%E5%BA%95%E4%B8%8B/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+查看系統版本
+12cat /etc/redhat-release
+
+
+
+
+
+
+查看系統的硬碟空間
+123456指令: df -hPS: 要計算好移到 root 底下的空間, 後面若要新建home, 需要一定的空間。 ex 將 30G 轉
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2024/03/03/Linux-%E5%B0%87centos-home%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E8%BD%89%E7%A7%BB%E8%87%B3centos-root%E5%BA%95%E4%B8%8B/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2024/03/03/Linux-%E5%B0%87centos-home%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E8%BD%89%E7%A7%BB%E8%87%B3centos-root%E5%BA%95%E4%B8%8B/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2024-01-04</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2024/01/04/Python2_7%E5%8D%87%E7%B4%9A%E6%88%90Python3_6-CentOS7/">Apache - 如何記錄真實IP</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Apache/" rel="tag">Apache</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Apache/">Apache</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2024/01/04/Python2_7%E5%8D%87%E7%B4%9A%E6%88%90Python3_6-CentOS7/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/IPnaroJpVYHbWsB.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/IPnaroJpVYHbWsB.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+下載模組
+
+ 12345678wget https://github.com/ttkzw/mod_remoteip-httpd22/archive/refs/heads/master.zipunzip mod_remoteip-http
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2024/01/04/Python2_7%E5%8D%87%E7%B4%9A%E6%88%90Python3_6-CentOS7/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2024/01/04/Python2_7%E5%8D%87%E7%B4%9A%E6%88%90Python3_6-CentOS7/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/IPnaroJpVYHbWsB.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/IPnaroJpVYHbWsB.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-11-09</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2023/11/09/Github-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2%E8%87%B3Render/">Github Action - 實現CI/CD自動部署至 Render</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/RENDER/" rel="tag">RENDER</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/GIT/">GIT</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2023/11/09/Github-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2%E8%87%B3Render/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+在GIT目錄下新增 .github/workflows/main-pr.yml 執行 action 的腳本
+123mkdir -p .github/workflowsvim main-pr.yml
+
+123456789101112131
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2023/11/09/Github-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2%E8%87%B3Render/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2023/11/09/Github-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2%E8%87%B3Render/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-10-03</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2023/10/03/shell-script-%E8%A8%88%E7%AE%97%E6%99%82%E9%96%93%E5%B7%AE%E5%B0%8F%E5%B7%A5%E5%85%B7/">Shell-Script - 計算時間差小工具</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Shell-Script/" rel="tag">Shell-Script</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Shell-Script/">Shell-Script</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2023/10/03/shell-script-%E8%A8%88%E7%AE%97%E6%99%82%E9%96%93%E5%B7%AE%E5%B0%8F%E5%B7%A5%E5%85%B7/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/uxFHlL2gqr84GRV.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/uxFHlL2gqr84GRV.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+
+
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2023/10/03/shell-script-%E8%A8%88%E7%AE%97%E6%99%82%E9%96%93%E5%B7%AE%E5%B0%8F%E5%B7%A5%E5%85%B7/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2023/10/03/shell-script-%E8%A8%88%E7%AE%97%E6%99%82%E9%96%93%E5%B7%AE%E5%B0%8F%E5%B7%A5%E5%85%B7/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/uxFHlL2gqr84GRV.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/uxFHlL2gqr84GRV.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-08-16</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2023/08/16/Grafana-CLI_%E6%8C%87%E4%BB%A4%E8%AA%9E%E6%B3%95/">Grafana - CLI 常用指令語法</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Grafana/" rel="tag">Grafana</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Grafana/">Grafana</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2023/08/16/Grafana-CLI_%E6%8C%87%E4%BB%A4%E8%AA%9E%E6%B3%95/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/A1u6UkyadzwlZOW.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/A1u6UkyadzwlZOW.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+
+Grafana CLI command syntax
+
+查看版本
+1grafana-cli -v
+
+
+覆蓋預設插件目錄
+1grafana-cli --pluginsDir &quot;/var/lib/grafana/devplugi
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2023/08/16/Grafana-CLI_%E6%8C%87%E4%BB%A4%E8%AA%9E%E6%B3%95/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2023/08/16/Grafana-CLI_%E6%8C%87%E4%BB%A4%E8%AA%9E%E6%B3%95/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/A1u6UkyadzwlZOW.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/A1u6UkyadzwlZOW.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-08-16</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2023/08/16/Grafana-%E5%91%8A%E8%AD%A6%E5%A0%B1%E9%8C%AF_ERROR_webhook_response_status_401/">Grafana - 告警報錯 ERROR &#39;webhook_response_status_401&#39;及升級版本至 v10.1.4</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Grafana/" rel="tag">Grafana</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Grafana/">Grafana</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2023/08/16/Grafana-%E5%91%8A%E8%AD%A6%E5%A0%B1%E9%8C%AF_ERROR_webhook_response_status_401/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            測試 LINE告警時,出現 ERROR &quot;webhook_response_status_401&quot;
+
+
+
+
+查了好久才發現原來是v10.0版本的問題 所以紀錄一下
+
+升級Grafana至v10.1
+
+備份 (測試後不會不
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2023/08/16/Grafana-%E5%91%8A%E8%AD%A6%E5%A0%B1%E9%8C%AF_ERROR_webhook_response_status_401/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2023/08/16/Grafana-%E5%91%8A%E8%AD%A6%E5%A0%B1%E9%8C%AF_ERROR_webhook_response_status_401/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-08-04</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2023/08/04/OpenSSL-%E5%AE%89%E8%A3%9Dopenssl-3_1_2/">OpenSSL - 安裝 OpenSSL-3.1.2 並移除舊版本 (原因: nodejs-v16.18.1 不支援 openssl-1.1.1q)</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/OpenSSL/" rel="tag">OpenSSL</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Linux/">Linux</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2023/08/04/OpenSSL-%E5%AE%89%E8%A3%9Dopenssl-3_1_2/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+移除舊版本1whereis openssl | xargs rm -frv
+
+
+
+安裝依賴1yum install perl-ExtUtils-CBuilder perl-ExtUtils-MakeMaker perl-CPAN per
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2023/08/04/OpenSSL-%E5%AE%89%E8%A3%9Dopenssl-3_1_2/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2023/08/04/OpenSSL-%E5%AE%89%E8%A3%9Dopenssl-3_1_2/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-08-03</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2023/08/03/Linux-SNMP_%E5%B8%B8%E7%94%A8%E7%9B%A3%E6%8E%A7_OID/">Linux - SNMP 常用監控_OID</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/SNMP/" rel="tag">SNMP</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Linux/">Linux</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2023/08/03/Linux-SNMP_%E5%B8%B8%E7%94%A8%E7%9B%A3%E6%8E%A7_OID/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/JB82QFMjkyEZePX.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/JB82QFMjkyEZePX.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+Linux 常用的監控 SNMP_OID
+
+123EX:snmpwalk -v 2c -c public 127.0.0.1 OID  
+
+
+
+負載 Loading
+123451 minute Load: .1.3.6.1.4.1.20
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2023/08/03/Linux-SNMP_%E5%B8%B8%E7%94%A8%E7%9B%A3%E6%8E%A7_OID/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2023/08/03/Linux-SNMP_%E5%B8%B8%E7%94%A8%E7%9B%A3%E6%8E%A7_OID/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/JB82QFMjkyEZePX.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/JB82QFMjkyEZePX.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+</section>
+    <!-- 翻页 -->
+    
+  <!-- <nav class="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/blog.github.io/page/2/">2</a><a class="page-number" href="/blog.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog.github.io/page/25/">25</a><a class="extend next" rel="next" href="/blog.github.io/page/2/">Next</a>
+  </nav> -->
+  <div class="page-nav">
+    
+    <div class="page-info">
+        <div class="page-info-text">1 / 25</div>
+    </div>
+    
+      <a href="/blog.github.io/page/2/"
+         class="page-nav-next">
+          <span class="mr-5">Next</span><i class="fas fa-angle-right"></i>
+      </a>
+      
+  </div>
+
+  </div>
+
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/blog.github.io/'>
+          <img src='https://s2.loli.net/2024/10/25/wgRBamAXfrcFQvJ.gif'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>Laurance Note</h2>
+        
+        
+        
+      </div>
+    
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+    
+  
+
+  <div class="layout_sticky">    
+    
+      
+        
+    <section class="widget side_category">
+      
+  <header>
+    
+      <a style="color: " href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分類</span></a>
+    
+  </header>
+
+
+      <div class='content'>
+        <ul class="entry navigation">
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/AWS/" href="/blog.github.io/categories/AWS/"
+              id="bloggithubiocategoriesAWS"
+              ><div class='name'>AWS</div><div class='badge'>(15)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Apache/" href="/blog.github.io/categories/Apache/"
+              id="bloggithubiocategoriesApache"
+              ><div class='name'>Apache</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Cache/" href="/blog.github.io/categories/Cache/"
+              id="bloggithubiocategoriesCache"
+              ><div class='name'>Cache</div><div class='badge'>(6)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Cacti/" href="/blog.github.io/categories/Cacti/"
+              id="bloggithubiocategoriesCacti"
+              ><div class='name'>Cacti</div><div class='badge'>(2)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/CentOS/" href="/blog.github.io/categories/CentOS/"
+              id="bloggithubiocategoriesCentOS"
+              ><div class='name'>CentOS</div><div class='badge'>(11)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/DNS/" href="/blog.github.io/categories/DNS/"
+              id="bloggithubiocategoriesDNS"
+              ><div class='name'>DNS</div><div class='badge'>(4)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Debian/" href="/blog.github.io/categories/Debian/"
+              id="bloggithubiocategoriesDebian"
+              ><div class='name'>Debian</div><div class='badge'>(3)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Docker/" href="/blog.github.io/categories/Docker/"
+              id="bloggithubiocategoriesDocker"
+              ><div class='name'>Docker</div><div class='badge'>(12)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/FortiGate/" href="/blog.github.io/categories/FortiGate/"
+              id="bloggithubiocategoriesFortiGate"
+              ><div class='name'>FortiGate</div><div class='badge'>(4)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/GCP/" href="/blog.github.io/categories/GCP/"
+              id="bloggithubiocategoriesGCP"
+              ><div class='name'>GCP</div><div class='badge'>(13)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/GIT/" href="/blog.github.io/categories/GIT/"
+              id="bloggithubiocategoriesGIT"
+              ><div class='name'>GIT</div><div class='badge'>(4)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Grafana/" href="/blog.github.io/categories/Grafana/"
+              id="bloggithubiocategoriesGrafana"
+              ><div class='name'>Grafana</div><div class='badge'>(11)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/HEXO/" href="/blog.github.io/categories/HEXO/"
+              id="bloggithubiocategoriesHEXO"
+              ><div class='name'>HEXO</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/HUGO/" href="/blog.github.io/categories/HUGO/"
+              id="bloggithubiocategoriesHUGO"
+              ><div class='name'>HUGO</div><div class='badge'>(7)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/InfluxDB/" href="/blog.github.io/categories/InfluxDB/"
+              id="bloggithubiocategoriesInfluxDB"
+              ><div class='name'>InfluxDB</div><div class='badge'>(3)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Iptables/" href="/blog.github.io/categories/Iptables/"
+              id="bloggithubiocategoriesIptables"
+              ><div class='name'>Iptables</div><div class='badge'>(7)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Kubernetes/" href="/blog.github.io/categories/Kubernetes/"
+              id="bloggithubiocategoriesKubernetes"
+              ><div class='name'>Kubernetes</div><div class='badge'>(11)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Line/" href="/blog.github.io/categories/Line/"
+              id="bloggithubiocategoriesLine"
+              ><div class='name'>Line</div><div class='badge'>(2)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Linux/" href="/blog.github.io/categories/Linux/"
+              id="bloggithubiocategoriesLinux"
+              ><div class='name'>Linux</div><div class='badge'>(27)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Memcache/" href="/blog.github.io/categories/Memcache/"
+              id="bloggithubiocategoriesMemcache"
+              ><div class='name'>Memcache</div><div class='badge'>(3)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/MongoDB/" href="/blog.github.io/categories/MongoDB/"
+              id="bloggithubiocategoriesMongoDB"
+              ><div class='name'>MongoDB</div><div class='badge'>(6)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Mount/" href="/blog.github.io/categories/Mount/"
+              id="bloggithubiocategoriesMount"
+              ><div class='name'>Mount</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/MySQL/" href="/blog.github.io/categories/MySQL/"
+              id="bloggithubiocategoriesMySQL"
+              ><div class='name'>MySQL</div><div class='badge'>(16)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/PHP/" href="/blog.github.io/categories/PHP/"
+              id="bloggithubiocategoriesPHP"
+              ><div class='name'>PHP</div><div class='badge'>(8)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/PhpStorm/" href="/blog.github.io/categories/PhpStorm/"
+              id="bloggithubiocategoriesPhpStorm"
+              ><div class='name'>PhpStorm</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Postgresql/" href="/blog.github.io/categories/Postgresql/"
+              id="bloggithubiocategoriesPostgresql"
+              ><div class='name'>Postgresql</div><div class='badge'>(2)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Prometheus/" href="/blog.github.io/categories/Prometheus/"
+              id="bloggithubiocategoriesPrometheus"
+              ><div class='name'>Prometheus</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Rclone/" href="/blog.github.io/categories/Rclone/"
+              id="bloggithubiocategoriesRclone"
+              ><div class='name'>Rclone</div><div class='badge'>(3)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Rsync/" href="/blog.github.io/categories/Rsync/"
+              id="bloggithubiocategoriesRsync"
+              ><div class='name'>Rsync</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/SECTIGO/" href="/blog.github.io/categories/SECTIGO/"
+              id="bloggithubiocategoriesSECTIGO"
+              ><div class='name'>SECTIGO</div><div class='badge'>(1)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/SVN/" href="/blog.github.io/categories/SVN/"
+              id="bloggithubiocategoriesSVN"
+              ><div class='name'>SVN</div><div class='badge'>(8)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Shell-Script/" href="/blog.github.io/categories/Shell-Script/"
+              id="bloggithubiocategoriesShell-Script"
+              ><div class='name'>Shell-Script</div><div class='badge'>(7)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/VPN/" href="/blog.github.io/categories/VPN/"
+              id="bloggithubiocategoriesVPN"
+              ><div class='name'>VPN</div><div class='badge'>(2)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Web/" href="/blog.github.io/categories/Web/"
+              id="bloggithubiocategoriesWeb"
+              ><div class='name'>Web</div><div class='badge'>(17)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Windows/" href="/blog.github.io/categories/Windows/"
+              id="bloggithubiocategoriesWindows"
+              ><div class='name'>Windows</div><div class='badge'>(15)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/XenCenter/" href="/blog.github.io/categories/XenCenter/"
+              id="bloggithubiocategoriesXenCenter"
+              ><div class='name'>XenCenter</div><div class='badge'>(4)</div></a></li>
+          
+            <li><a class="flat-box"
+              title="/blog.github.io/categories/Xshell/" href="/blog.github.io/categories/Xshell/"
+              id="bloggithubiocategoriesXshell"
+              ><div class='name'>Xshell</div><div class='badge'>(2)</div></a></li>
+          
+        </ul>
+      </div>
+    </section>
+  
+  
+      
+      
+        
+<section class="widget side_tagcloud">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>熱門標簽</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+    <a href="/blog.github.io/tags/AWS/" style="font-size: 23.17px; color: #5b5b5b">AWS</a> <a href="/blog.github.io/tags/Apache/" style="font-size: 15.67px; color: #8e8e8e">Apache</a> <a href="/blog.github.io/tags/Cacti/" style="font-size: 14.83px; color: #939393">Cacti</a> <a href="/blog.github.io/tags/CentOS/" style="font-size: 19.83px; color: #717171">CentOS</a> <a href="/blog.github.io/tags/Chocolatey/" style="font-size: 14px; color: #999">Chocolatey</a> <a href="/blog.github.io/tags/Crontab/" style="font-size: 14px; color: #999">Crontab</a> <a href="/blog.github.io/tags/DNS/" style="font-size: 14px; color: #999">DNS</a> <a href="/blog.github.io/tags/Debian/" style="font-size: 15.67px; color: #8e8e8e">Debian</a> <a href="/blog.github.io/tags/Docker/" style="font-size: 18.17px; color: #7d7d7d">Docker</a> <a href="/blog.github.io/tags/FFmpeg/" style="font-size: 14px; color: #999">FFmpeg</a> <a href="/blog.github.io/tags/Firebase/" style="font-size: 14px; color: #999">Firebase</a> <a href="/blog.github.io/tags/FortiGate/" style="font-size: 16.5px; color: #888">FortiGate</a> <a href="/blog.github.io/tags/GCP/" style="font-size: 21.5px; color: #666">GCP</a> <a href="/blog.github.io/tags/GIT/" style="font-size: 15.67px; color: #8e8e8e">GIT</a> <a href="/blog.github.io/tags/Grafana/" style="font-size: 21.5px; color: #666">Grafana</a> <a href="/blog.github.io/tags/HEXO/" style="font-size: 14px; color: #999">HEXO</a> <a href="/blog.github.io/tags/HTTP/" style="font-size: 14px; color: #999">HTTP</a> <a href="/blog.github.io/tags/HUGO/" style="font-size: 18.17px; color: #7d7d7d">HUGO</a> <a href="/blog.github.io/tags/Haproxy/" style="font-size: 14px; color: #999">Haproxy</a> <a href="/blog.github.io/tags/InfluxDB/" style="font-size: 15.67px; color: #8e8e8e">InfluxDB</a> <a href="/blog.github.io/tags/Iptables/" style="font-size: 18.17px; color: #7d7d7d">Iptables</a> <a href="/blog.github.io/tags/Kubernetes/" style="font-size: 20.67px; color: #6c6c6c">Kubernetes</a> <a href="/blog.github.io/tags/Line/" style="font-size: 14.83px; color: #939393">Line</a> <a href="/blog.github.io/tags/Linux/" style="font-size: 20.67px; color: #6c6c6c">Linux</a> <a href="/blog.github.io/tags/Locate/" style="font-size: 14px; color: #999">Locate</a> <a href="/blog.github.io/tags/Logrotate/" style="font-size: 14.83px; color: #939393">Logrotate</a> <a href="/blog.github.io/tags/Loki/" style="font-size: 14px; color: #999">Loki</a> <a href="/blog.github.io/tags/MFA/" style="font-size: 14px; color: #999">MFA</a> <a href="/blog.github.io/tags/MariaDB/" style="font-size: 14px; color: #999">MariaDB</a> <a href="/blog.github.io/tags/Memcache/" style="font-size: 15.67px; color: #8e8e8e">Memcache</a> <a href="/blog.github.io/tags/MongoDB/" style="font-size: 17.33px; color: #828282">MongoDB</a> <a href="/blog.github.io/tags/Mount/" style="font-size: 14px; color: #999">Mount</a> <a href="/blog.github.io/tags/MySQL/" style="font-size: 24px; color: #555">MySQL</a> <a href="/blog.github.io/tags/Nginx/" style="font-size: 22.33px; color: #606060">Nginx</a> <a href="/blog.github.io/tags/NodeJS/" style="font-size: 14px; color: #999">NodeJS</a> <a href="/blog.github.io/tags/OpenSSL/" style="font-size: 14px; color: #999">OpenSSL</a> <a href="/blog.github.io/tags/PHP/" style="font-size: 19px; color: #777">PHP</a> <a href="/blog.github.io/tags/PMA/" style="font-size: 14px; color: #999">PMA</a> <a href="/blog.github.io/tags/PhpStorm/" style="font-size: 14px; color: #999">PhpStorm</a> <a href="/blog.github.io/tags/Postgresql/" style="font-size: 14.83px; color: #939393">Postgresql</a> <a href="/blog.github.io/tags/Prometheus/" style="font-size: 14.83px; color: #939393">Prometheus</a> <a href="/blog.github.io/tags/Promtail/" style="font-size: 14px; color: #999">Promtail</a> <a href="/blog.github.io/tags/PuTTYgen/" style="font-size: 14px; color: #999">PuTTYgen</a> <a href="/blog.github.io/tags/Python/" style="font-size: 14.83px; color: #939393">Python</a> <a href="/blog.github.io/tags/RAR/" style="font-size: 14px; color: #999">RAR</a> <a href="/blog.github.io/tags/RENDER/" style="font-size: 14px; color: #999">RENDER</a> <a href="/blog.github.io/tags/Rclone/" style="font-size: 15.67px; color: #8e8e8e">Rclone</a> <a href="/blog.github.io/tags/Redis/" style="font-size: 17.33px; color: #828282">Redis</a> <a href="/blog.github.io/tags/Rsync/" style="font-size: 14.83px; color: #939393">Rsync</a> <a href="/blog.github.io/tags/Rsyslog/" style="font-size: 14.83px; color: #939393">Rsyslog</a> <a href="/blog.github.io/tags/SECTIGO/" style="font-size: 14px; color: #999">SECTIGO</a> <a href="/blog.github.io/tags/SNMP/" style="font-size: 14px; color: #999">SNMP</a> <a href="/blog.github.io/tags/SOCKS5/" style="font-size: 14px; color: #999">SOCKS5</a> <a href="/blog.github.io/tags/SVN/" style="font-size: 19px; color: #777">SVN</a> <a href="/blog.github.io/tags/Shell-Script/" style="font-size: 18.17px; color: #7d7d7d">Shell-Script</a> <a href="/blog.github.io/tags/Socket-5/" style="font-size: 14px; color: #999">Socket 5</a> <a href="/blog.github.io/tags/System/" style="font-size: 14px; color: #999">System</a> <a href="/blog.github.io/tags/VIM/" style="font-size: 14px; color: #999">VIM</a> <a href="/blog.github.io/tags/Windows/" style="font-size: 23.17px; color: #5b5b5b">Windows</a> <a href="/blog.github.io/tags/XL2TPD/" style="font-size: 14px; color: #999">XL2TPD</a> <a href="/blog.github.io/tags/XenCenter/" style="font-size: 16.5px; color: #888">XenCenter</a> <a href="/blog.github.io/tags/Xshell/" style="font-size: 14.83px; color: #939393">Xshell</a> <a href="/blog.github.io/tags/Zabbix/" style="font-size: 14px; color: #999">Zabbix</a> <a href="/blog.github.io/tags/bind/" style="font-size: 14px; color: #999">bind</a> <a href="/blog.github.io/tags/exporter/" style="font-size: 14px; color: #999">exporter</a> <a href="/blog.github.io/tags/influxdb/" style="font-size: 14px; color: #999">influxdb</a> <a href="/blog.github.io/tags/mydns/" style="font-size: 14px; color: #999">mydns</a> <a href="/blog.github.io/tags/telegraf/" style="font-size: 14.83px; color: #939393">telegraf</a> <a href="/blog.github.io/tags/youtube-dl/" style="font-size: 14.83px; color: #939393">youtube-dl</a> <a href="/blog.github.io/tags/yt-dlp/" style="font-size: 14px; color: #999">yt-dlp</a>
+    </div>
+</section>
+
+  
+      
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/blog.github.io/2024/09/17/testtest/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-17</span>
+                
+              </div>
+              <a class="post-title" href="/blog.github.io/2024/09/17/testtest/">testtest</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/blog.github.io/2024/06/02/Windows-%E4%BD%BF%E7%94%A8PSW%E6%9F%A5%E8%A9%A2%E8%B7%AF%E5%BE%91%E4%B8%8B%E7%9A%84%E7%9B%AE%E9%8C%84%E5%A4%A7%E5%B0%8F/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">06-02</span>
+                
+              </div>
+              <a class="post-title" href="/blog.github.io/2024/06/02/Windows-%E4%BD%BF%E7%94%A8PSW%E6%9F%A5%E8%A9%A2%E8%B7%AF%E5%BE%91%E4%B8%8B%E7%9A%84%E7%9B%AE%E9%8C%84%E5%A4%A7%E5%B0%8F/">Windows-使用PSW查詢路徑下的目錄大小</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/blog.github.io/2024/03/03/Linux-%E5%B0%87centos-home%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E8%BD%89%E7%A7%BB%E8%87%B3centos-root%E5%BA%95%E4%B8%8B/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">03-03</span>
+                
+              </div>
+              <a class="post-title" href="/blog.github.io/2024/03/03/Linux-%E5%B0%87centos-home%E7%A1%AC%E7%A2%9F%E7%A9%BA%E9%96%93%E8%BD%89%E7%A7%BB%E8%87%B3centos-root%E5%BA%95%E4%B8%8B/">Linux - 將 CentOS-home 硬碟空間轉移至 CentOS-root 底下</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/blog.github.io/2024/01/04/Python2_7%E5%8D%87%E7%B4%9A%E6%88%90Python3_6-CentOS7/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://s2.loli.net/2024/10/25/IPnaroJpVYHbWsB.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/IPnaroJpVYHbWsB.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">01-04</span>
+                
+              </div>
+              <a class="post-title" href="/blog.github.io/2024/01/04/Python2_7%E5%8D%87%E7%B4%9A%E6%88%90Python3_6-CentOS7/">Apache - 如何記錄真實IP</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/blog.github.io/2023/11/09/Github-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2%E8%87%B3Render/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">11-09</span>
+                
+              </div>
+              <a class="post-title" href="/blog.github.io/2023/11/09/Github-%E8%87%AA%E5%8B%95%E9%83%A8%E7%BD%B2%E8%87%B3Render/">Github Action - 實現CI/CD自動部署至 Render</a>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+      
+  <section class="widget side_archives">
+    
+    <header><a style="color: red" href='/blog.github.io/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>歸檔</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2024/06/"><span class="card-archive-list-date">June 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog.github.io/archives/2023/07/"><span class="card-archive-list-date">July 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div>
+  </section>
+
+      <section class="widget side_webinfo">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name' style="color: ">站點信息</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="webinfo">
+      
+        <div class="webinfo-item">
+          <div>文章數目：</div>
+          <div>244 篇</div>
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>已運行時間：</div>
+          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
+        </div>
+        <script>
+          var BirthDay = new Date(new Date('2020/01/01'));
+          var today = new Date();
+          var timeold = (today.getTime() - BirthDay.getTime());
+          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
+          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
+        </script>
+      
+
+
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站訪客數：</div>
+          
+          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>本站總訪問量：</div>
+          
+          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
+          
+        </div>
+      
+
+      
+        <div class="webinfo-item">
+          <div>最後活動時間：</div>
+          
+            <div id="last-update" style="display: none;">Sun Nov 02 2025 20:45:51 GMT+0800 (台北標準時間)</div>
+            <div id="last-update-show">2025-11-02 日</div>
+          
+        </div>
+        
+        <script>
+          function timeago(dateTimeStamp) {
+              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
+              var hour = minute * 60;
+              var day = hour * 24;
+              var week = day * 7;
+              var month = day * 30;
+              var now = new Date().getTime(); //获取当前时间毫秒
+              var diffValue = now - dateTimeStamp; //时间差
+              if (diffValue < 0) {
+                  return;
+              }
+              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
+              var hourC = diffValue / hour;
+              var dayC = diffValue / day;
+              var weekC = diffValue / week;
+              var monthC = diffValue / month;
+              if (monthC >= 1 && monthC <= 3) {
+                  result = " " + parseInt(monthC) + " 月前"
+              } else if (weekC >= 1 && weekC <= 3) {
+                  result = " " + parseInt(weekC) + " 周前"
+              } else if (dayC >= 1 && dayC <= 6) {
+                  result = " " + parseInt(dayC) + " 天前"
+              } else if (hourC >= 1 && hourC <= 23) {
+                  result = " " + parseInt(hourC) + " 小时前"
+              } else if (minC >= 1 && minC <= 59) {
+                  result = " " + parseInt(minC) + " 分钟前"
+              } else if (diffValue >= 0 && diffValue <= minute) {
+                  result = "刚刚"
+              } else {
+                  var datetime = new Date();
+                  datetime.setTime(dateTimeStamp);
+                  var Nyear = datetime.getFullYear();
+                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
+                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+                  result = Nyear + "-" + Nmonth + "-" + Ndate
+              }
+              return result;
+          }
+          var lastUpDate = document.getElementById('last-update').innerHTML;
+          try {
+            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
+          } catch (error) {
+            document.getElementById('last-update-show').innerHTML = '2025-11-02 日';
+          }
+        </script>
+        
+      
+    </div>
+  </div>
+</section>
+      
+  
+    <div class="widget qexo-friends" id="qexo-friends" style="order: -1;background: #fff">
+      <header>
+        
+          <a style="color: #d63130" href='/links/'><i class="fas fa-user-friends fa-fw" aria-hidden="true"></i><span class='name'>夏目友人帳</span></a>
+        
+      </header>
+      <div class="content">
+        朋友一生一起走
+      </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+</div>
+<!-- 花瓣和雪花飘落 -->
+<!-- 雪花和花瓣特效 -->
+
+  
+    <script defer src="/blog.github.io/js/falling/snow.js"></script>
+  
+
+
+
+<!-- 灯笼 -->
+
+
+      </main>
+    </div>
+
+    <!-- 页脚 -->
+    
+  
+  
+    <!-- 底部鱼儿跳动效果，依赖于jquery-->
+<div id="j-fish-skip" style=" position: relative;height: 153px;width: auto;"></div>
+<script defer>
+  var RENDERER = {
+    POINT_INTERVAL: 5,
+    FISH_COUNT: 3,
+    MAX_INTERVAL_COUNT: 50,
+    INIT_HEIGHT_RATE: .5,
+    THRESHOLD: 50,
+    FISH_COLOR: '',
+    init: function () {
+      this.setFishColor(); this.setParameters(), this.reconstructMethods(), this.setup(), this.bindEvent(), this.render()
+    },
+    setFishColor: function () {
+      let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+      if (isDark) {
+        this.FISH_COLOR = '#222'; // 暗黑色，有时间把这整成一个变量
+      } else {
+        this.FISH_COLOR = '' || 'rgba(66, 185, 133, 0.8)';
+      }
+    },
+    setParameters: function () {
+      this.$window = $(window), this.$container = $("#j-fish-skip"), this.$canvas = $("<canvas />"), this.context = this.$canvas.appendTo(this.$container).get(0).getContext("2d"), this.points = [], this.fishes = [], this.watchIds = []
+    },
+    createSurfacePoints: function () {
+      var t = Math.round(this.width / this.POINT_INTERVAL);
+      this.pointInterval = this.width / (t - 1), this.points.push(new SURFACE_POINT(this, 0));
+      for (var i = 1; i < t; i++) {
+        var e = new SURFACE_POINT(this, i * this.pointInterval),
+          h = this.points[i - 1];
+        e.setPreviousPoint(h), h.setNextPoint(e), this.points.push(e)
+      }
+    },
+    reconstructMethods: function () {
+      this.watchWindowSize = this.watchWindowSize.bind(this), this.jdugeToStopResize = this.jdugeToStopResize.bind(this), this.startEpicenter = this.startEpicenter.bind(this), this.moveEpicenter = this.moveEpicenter.bind(this), this.reverseVertical = this.reverseVertical.bind(this), this.render = this.render.bind(this)
+    },
+    setup: function () {
+      this.points.length = 0, this.fishes.length = 0, this.watchIds.length = 0, this.intervalCount = this.MAX_INTERVAL_COUNT, this.width = this.$container.width(), this.height = this.$container.height(), this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500, this.$canvas.attr({
+        width: this.width,
+        height: this.height
+      }), this.reverse = !1, this.fishes.push(new FISH(this)), this.createSurfacePoints()
+    },
+    watchWindowSize: function () {
+      this.clearTimer(), this.tmpWidth = this.$window.width(), this.tmpHeight = this.$window.height(), this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL))
+    },
+    clearTimer: function () {
+      for (; this.watchIds.length > 0;) clearTimeout(this.watchIds.pop())
+    },
+    jdugeToStopResize: function () {
+      var t = this.$window.width(),
+        i = this.$window.height(),
+        e = t == this.tmpWidth && i == this.tmpHeight;
+      this.tmpWidth = t, this.tmpHeight = i, e && this.setup()
+    },
+    bindEvent: function () {
+      this.$window.on("resize", this.watchWindowSize), this.$container.on("mouseenter", this.startEpicenter), this.$container.on("mousemove", this.moveEpicenter)
+    },
+    getAxis: function (t) {
+      var i = this.$container.offset();
+      return {
+        x: t.clientX - i.left + this.$window.scrollLeft(),
+        y: t.clientY - i.top + this.$window.scrollTop()
+      }
+    },
+    startEpicenter: function (t) {
+      this.axis = this.getAxis(t)
+    },
+    moveEpicenter: function (t) {
+      var i = this.getAxis(t);
+      this.axis || (this.axis = i), this.generateEpicenter(i.x, i.y, i.y - this.axis.y), this.axis = i
+    },
+    generateEpicenter: function (t, i, e) {
+      if (!(i < this.height / 2 - this.THRESHOLD || i > this.height / 2 + this.THRESHOLD)) {
+        var h = Math.round(t / this.pointInterval);
+        h < 0 || h >= this.points.length || this.points[h].interfere(i, e)
+      }
+    },
+    reverseVertical: function () {
+      this.reverse = !this.reverse;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].reverseVertical()
+    },
+    controlStatus: function () {
+      for (var t = 0, i = this.points.length; t < i; t++) this.points[t].updateSelf();
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].updateNeighbors();
+      this.fishes.length < this.fishCount && 0 == --this.intervalCount && (this.intervalCount = this.MAX_INTERVAL_COUNT, this.fishes.push(new FISH(this)))
+    },
+    render: function () {
+      requestAnimationFrame(this.render), this.controlStatus(), this.context.clearRect(0, 0, this.width, this.height), this.context.fillStyle = this.FISH_COLOR;
+      for (var t = 0, i = this.fishes.length; t < i; t++) this.fishes[t].render(this.context);
+      this.context.save(), this.context.globalCompositeOperation = "xor", this.context.beginPath(), this.context.moveTo(0, this.reverse ? 0 : this.height);
+      for (t = 0, i = this.points.length; t < i; t++) this.points[t].render(this.context);
+      this.context.lineTo(this.width, this.reverse ? 0 : this.height), this.context.closePath(), this.context.fill(), this.context.restore()
+    }
+  },
+  SURFACE_POINT = function (t, i) {
+    this.renderer = t, this.x = i, this.init()
+  };
+  SURFACE_POINT.prototype = {
+    SPRING_CONSTANT: .03,
+    SPRING_FRICTION: .9,
+    WAVE_SPREAD: .3,
+    ACCELARATION_RATE: .01,
+    init: function () {
+      this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE, this.height = this.initHeight, this.fy = 0, this.force = {
+        previous: 0,
+        next: 0
+      }
+    },
+    setPreviousPoint: function (t) {
+      this.previous = t
+    },
+    setNextPoint: function (t) {
+      this.next = t
+    },
+    interfere: function (t, i) {
+      this.fy = this.renderer.height * this.ACCELARATION_RATE * (this.renderer.height - this.height - t >= 0 ? -1 : 1) * Math.abs(i)
+    },
+    updateSelf: function () {
+      this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height), this.fy *= this.SPRING_FRICTION, this.height += this.fy
+    },
+    updateNeighbors: function () {
+      this.previous && (this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height)), this.next && (this.force.next = this.WAVE_SPREAD * (this.height - this.next.height))
+    },
+    render: function (t) {
+      this.previous && (this.previous.height += this.force.previous, this.previous.fy += this.force.previous), this.next && (this.next.height += this.force.next, this.next.fy += this.force.next), t.lineTo(this.x, this.renderer.height - this.height)
+    }
+  };
+  var FISH = function (t) {
+    this.renderer = t, this.init()
+  };
+  FISH.prototype = {
+    GRAVITY: .4,
+    init: function () {
+      this.direction = Math.random() < .5, this.x = this.direction ? this.renderer.width + this.renderer.THRESHOLD : -this.renderer.THRESHOLD, this.previousY = this.y, this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1), this.renderer.reverse ? (this.y = this.getRandomValue(1 * this.renderer.height / 10, 4 * this.renderer.height / 10), this.vy = this.getRandomValue(2, 5), this.ay = this.getRandomValue(.05, .2)) : (this.y = this.getRandomValue(6 * this.renderer.height / 10, 9 * this.renderer.height / 10), this.vy = this.getRandomValue(-5, -2), this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1, this.theta = 0, this.phi = 0
+    },
+    getRandomValue: function (t, i) {
+      return t + (i - t) * Math.random()
+    },
+    reverseVertical: function () {
+      this.isOut = !this.isOut, this.ay *= -1
+    },
+    controlStatus: function (t) {
+      this.previousY = this.y, this.x += this.vx, this.y += this.vy, this.vy += this.ay, this.renderer.reverse ? this.y > this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy -= this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(.05, .2)), this.isOut = !1) : this.y < this.renderer.height * this.renderer.INIT_HEIGHT_RATE ? (this.vy += this.GRAVITY, this.isOut = !0) : (this.isOut && (this.ay = this.getRandomValue(-.2, -.05)), this.isOut = !1), this.isOut || (this.theta += Math.PI / 20, this.theta %= 2 * Math.PI, this.phi += Math.PI / 30, this.phi %= 2 * Math.PI), this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY), (this.vx > 0 && this.x > this.renderer.width + this.renderer.THRESHOLD || this.vx < 0 && this.x < -this.renderer.THRESHOLD) && this.init()
+    },
+    render: function (t) {
+      t.save(), t.translate(this.x, this.y), t.rotate(Math.PI + Math.atan2(this.vy, this.vx)), t.scale(1, this.direction ? 1 : -1), t.beginPath(), t.moveTo(-30, 0), t.bezierCurveTo(-20, 15, 15, 10, 40, 0), t.bezierCurveTo(15, -10, -20, -15, -30, 0), t.fill(), t.save(), t.translate(40, 0), t.scale(.9 + .2 * Math.sin(this.theta), 1), t.beginPath(), t.moveTo(0, 0), t.quadraticCurveTo(5, 10, 20, 8), t.quadraticCurveTo(12, 5, 10, 0), t.quadraticCurveTo(12, -5, 20, -8), t.quadraticCurveTo(5, -10, 0, 0), t.fill(), t.restore(), t.save(), t.translate(-3, 0), t.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1)), t.beginPath(), this.renderer.reverse ? (t.moveTo(5, 0), t.bezierCurveTo(10, 10, 10, 30, 0, 40), t.bezierCurveTo(-12, 25, -8, 10, 0, 0)) : (t.moveTo(-5, 0), t.bezierCurveTo(-10, -10, -10, -30, 0, -40), t.bezierCurveTo(12, -25, 8, -10, 0, 0)), t.closePath(), t.fill(), t.restore(), t.restore(), this.controlStatus(t)
+    }
+  }, $(function () {
+    RENDERER.init()
+    $('.dark').click(function () {
+      setTimeout(() => {
+        RENDERER.setFishColor();
+        RENDERER.context.fill();
+      });
+    })
+  });
+</script>
+  
+  <div class="footer bg-color">
+    <div class="footer-main">
+      
+        
+          <div class="link">
+            
+          </div>
+        
+      
+        
+          <div class="footer-copyright">
+            <p>Copyright © 2019 - 2020 <a target="_blank" rel="noopener" href="https://github.com/yuang01">yuang01</a> | Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo</a> | Theme <a target="_blank" rel="noopener" href="https://github.com/yuang01/theme">Bamboo</a> </p>
+
+          </div>
+        
+      
+        
+          <div class="footer-custom">
+            
+          </div>
+        
+      
+    </div>
+  </div>
+
+
+
+    <!-- 渲染暗黑按钮 -->
+    
+      <div class="dark" onclick="toggleDarkMode()">
+  <div class="dark-content">
+    <i class="fas" id="darkIcon" aria-hidden="true"></i>
+  </div>
+</div>
+
+<script defer>
+  $(function() {
+    // 初始化暗黑模式状态
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    updateDarkModeIcon(isDark);
+  });
+
+  function toggleDarkMode() {
+    const isDark = $(document.body).hasClass('darkModel');
+    $(document.body).toggleClass('darkModel');
+    localStorage.setItem('dark', !isDark);
+    updateDarkModeIcon(!isDark);
+  }
+
+  function updateDarkModeIcon(isDark) {
+    const iconElement = document.getElementById('darkIcon');
+    if (isDark) {
+      iconElement.classList.remove('fa-moon');
+      iconElement.classList.add('fa-lightbulb');
+    } else {
+      iconElement.classList.remove('fa-lightbulb');
+      iconElement.classList.add('fa-moon');
+    }
+  }
+</script>
+
+    
+    <!-- 渲染回到顶部按钮 -->
+    
+      <div class="goTop top-btn-color" pointer>
+  <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</div>
+<script defer src="/blog.github.io/js/goTop.js"></script>
+
+    
+    <!-- 渲染左下角音乐播放器 -->
+    
+      <link rel="stylesheet" href="/blog.github.io/js/aplayer/APlayer@1.10.1.min.css">
+<style>
+.aplayer .aplayer-lrc p {
+  
+  display: none;
+  
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px !important;
+}
+
+.aplayer .aplayer-lrc p.aplayer-lrc-current {
+  
+  display: none;
+  
+  font-size: 15px;
+  color: #42b983;
+}
+
+
+</style>
+<meting-js  
+  class=""
+  server="netease"
+  type="artist"
+  id="2104134888"
+  fixed='true'
+  autoplay='true'
+  theme='#42b983'
+  loop='all'
+  order='random'
+  preload='auto'
+  volume='0.7'
+  list-folded='true'
+>
+</meting-js>
+
+<!-- <style>
+  #aplayer {
+    position: fixed;
+    left: 0;
+    bottom: 300px;
+  }
+</style> -->
+<script defer src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script defer src="https://unpkg.com/meting@2/dist/Meting.min.js"></script>
+    
+
+    <!-- 图片放大 -->
+    
+      <script src="https://unpkg.com/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+
+    <!-- 百度解析 -->
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script async>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <!-- 背景彩带 -->
+    
+      <script async type="text/javascript" size="100" alpha='0.4' zIndex="-1" src="/blog.github.io/js/ribbon.min.js"></script>
+    
+
+    <script src="/blog.github.io/js/utils/index.js"></script>
+    <script src="/blog.github.io/js/app.js"></script>
+    
+    <!-- 文章目录所需js -->
+<!-- <link href="/blog.github.io/js/tocbot/tocbot.css" rel="stylesheet">
+<script src="/blog.github.io/js/tocbot/tocbot.min.js"></script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.18.2/tocbot.css">
+
+<script>
+  var headerEl = 'h2, h3, h4',  //headers 
+    content = '.post-detail',//文章容器
+    idArr = {};  //标题数组以确定是否增加索引id
+  //add #id
+  var option = {
+    // Where to render the table of contents.
+    tocSelector: '.toc',
+    // Where to grab the headings to build the table of contents.
+    contentSelector: content,
+    // Which headings to grab inside of the contentSelector element.
+    headingSelector: headerEl,
+    scrollSmooth: true,
+    scrollSmoothOffset: -70,
+    // headingsOffset: -($(window).height() * 0.4 - 45),
+    headingsOffset: -($(window).height() * 0.4 - 70),
+    // positionFixedSelector: '.toc-main',
+    // positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+    activeLinkClass: 'is-active-link',
+    orderedList: true,
+    collapseDepth: 20,
+    // onClick: function (e) {},
+  }
+  if ($('.toc').length > 0) {
+
+    $(content).children(headerEl).each(function () {
+      //去除空格以及多余标点
+      var headerId = $(this).text().replace(/[\s|\~|`|\!|\@|\#|\$|\%|\^|\&|\*|\(|\)|\_|\+|\=|\||\|\[|\]|\{|\}|\;|\:|\"|\'|\,|\<|\.|\>|\/|\?|\：|\，|\。]/g, '');
+
+      headerId = headerId.toLowerCase();
+      if (idArr[headerId]) {
+        //id已经存在
+        $(this).attr('id', headerId + '-' + idArr[headerId]);
+        idArr[headerId]++;
+      }
+      else {
+        //id未存在
+        idArr[headerId] = 1;
+        $(this).attr('id', headerId);
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      tocbot.init(option);
+      mobileTocClick();
+    });
+
+  }
+
+  window.tocScrollFn = function () {
+    return bamboo.throttle(function () {
+      findHeadPosition();
+    }, 100)()
+  }
+  window.addEventListener('scroll', tocScrollFn);
+
+  const findHeadPosition = function (top) {
+    if ($('.toc-list').length <= 0) {
+      return false;
+    }
+    setTimeout(() => {  // or DOMContentLoaded 
+      autoScrollToc();
+    }, 0);
+  }
+
+  const autoScrollToc = function () {
+    const $activeItem = document.querySelector('.is-active-link');
+    const $cardToc = document.querySelector('.toc-content');
+    const activePosition = $activeItem.getBoundingClientRect().top
+    const sidebarScrollTop = $cardToc.scrollTop
+    if (activePosition > (document.documentElement.clientHeight - 100)) {
+      $cardToc.scrollTop = sidebarScrollTop + 150
+    }
+    if (activePosition < 150) {
+      $cardToc.scrollTop = sidebarScrollTop - 150
+    }
+  }
+
+  document.addEventListener('pjax:send', function () {
+    if ($('.toc').length) {
+      tocbot.destroy();
+    }
+  });
+
+  document.addEventListener('pjax:complete', function () {
+    if ($('.toc').length) {
+      tocbot.init(option);
+      mobileTocClick();
+    }
+  });
+  
+  // 手机端toc按钮点击出现目录
+  const mobileTocClick = function () {
+    const $cardTocLayout = document.getElementsByClassName('side_toc')[0];
+    const $cardToc = $cardTocLayout.getElementsByClassName('toc-content')[0];
+    let right = '45px';
+    if (window.innerWidth >= 551 && window.innerWidth <= 992) {
+      right = '100px'
+    }
+    const mobileToc = {
+      open: () => {
+        $cardTocLayout.style.cssText = 'animation: toc-open .3s; opacity: 1; right: ' + right
+      },
+
+      close: () => {
+        $cardTocLayout.style.animation = 'toc-close .2s'
+        setTimeout(() => {
+          $cardTocLayout.style.cssText = "opacity:''; animation: ''; right: ''"
+        }, 100)
+      }
+    }
+    document.getElementById('toc-mobile-btn').addEventListener('click', () => {
+      if (window.getComputedStyle($cardTocLayout).getPropertyValue('opacity') === '0') mobileToc.open()
+      else mobileToc.close()
+    })
+
+    $cardToc.addEventListener('click', (e) => {
+      if (window.innerWidth < 992) { // 小于992px的时候
+        mobileToc.close()
+      }
+    })
+  }
+</script>
+
+<style>
+  /* .is-position-fixed {
+    position: sticky !important;
+    top: 74px;
+  }
+
+  .toc-main ul {
+    counter-reset: show-list;
+  }
+
+  .toc-main ul li::before {
+    content: counter(item)".";
+    display: block;
+    position: absolute;
+    left: 12px;
+    top: 0;
+  } */
+</style>
+ 
+
+<!-- 设置导航背景 -->
+<script>
+  let setHeaderClass = () => {
+    const nav = $('#navHeader');
+    const navTop = nav.outerHeight();
+    const winTop = $(window).scrollTop();
+    if(winTop > navTop) {
+      nav.addClass('header-bg-color');
+    }
+    else {
+      nav.removeClass('header-bg-color');
+    }
+  };
+
+  let scrollCollect = () => {
+    return bamboo.throttle(function (e) {
+      setHeaderClass();
+    }, 200)()
+  }
+
+  let initHeaderBg = () => {
+    setHeaderClass();
+  }
+
+  setHeaderClass();
+  window.addEventListener('scroll', scrollCollect);
+
+  document.addEventListener('pjax:send', function () {
+    window.removeEventListener('scroll', scrollCollect)
+  })
+  document.addEventListener('pjax:complete', function () {
+    window.addEventListener('scroll', scrollCollect);
+    setHeaderClass();
+  })
+</script> 
+
+<!-- 渲染issues标签里的内容 -->
+<script>
+  function loadIssuesJS() {
+    if ($(".post-detail").find(".issues-api").length == 0) {
+      return;
+    } 
+    loadScript('/blog.github.io/js/issues/index.js');
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof IssuesAPI == "undefined") {
+      loadIssuesJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的图片标签(getPhotoOnline)里的内容 -->
+<script>
+  function loadPhotoOnlineJS() {
+    if ($(".post-detail").find(".getJsonPhoto-api").length == 0) {
+      return;
+    } 
+    loadScript('/blog.github.io/js/getPhotoOnline/index.js');
+  };
+  $(function () {
+    loadPhotoOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getPhotoJson == "undefined") {
+      loadPhotoOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的talk标签(getTalkOnline)里的内容 -->
+<script>
+  function loadTalkOnlineJS() {
+    if ($(".post-detail").find(".getJsonTalk-api").length == 0) {
+      return;
+    } 
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js'); // 瀑布流插件，https://raphamorim.io/waterfall.js/
+    loadScript('/blog.github.io/js/getTalkOnline/index.js');
+  };
+  $(function () {
+    loadTalkOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getTalkJson == "undefined") {
+      loadTalkOnlineJS();
+    }
+  })
+</script>
+
+<!-- 渲染远程json加载的site-card标签(getSiteOnline)里的内容 -->
+<script>
+  function loadSiteOnlineJS() {
+    if ($(".post-detail").find(".getJsonSite-api").length == 0) {
+      return;
+    } 
+    loadScript('/blog.github.io/js/getSiteOnline/index.js');
+  };
+  $(function () {
+    loadSiteOnlineJS();
+  });
+  document.addEventListener('pjax:complete', function () {
+    if (typeof getSiteJson == "undefined") {
+      loadSiteOnlineJS();
+    }
+  })
+</script>
+
+<!-- 输入框打字特效 -->
+<!-- 输入框打字特效 -->
+
+  <script src="/blog.github.io/js/activate-power-mode.js"></script>
+  <script>
+    POWERMODE.colorful = true;  // 打开随机颜色特效
+    POWERMODE.shake = false;    // 关闭输入框抖动
+    document.body.addEventListener('input', POWERMODE);//监听打字事件
+  </script>
+
+
+<!-- markdown代码一键复制功能 -->
+
+  <link rel="stylesheet" href="https://unpkg.com/v-plugs-ayu/lib/ayu.css">
+  <script src="https://unpkg.com/v-plugs-ayu/lib/ayu.umd.min.js"></script>
+  <script src="/blog.github.io/js/clipboard/clipboard.min.js"></script>
+  <div id="appCopy">
+  </div>
+  <script data-pjax>
+    var vm = new Vue({
+      el: '#appCopy',
+      data: {
+      },
+      computed: {
+      },
+      mounted() {
+        const that = this;
+        var copy = 'copy';
+        /* code */
+        var initCopyCode = function () {
+          var copyHtml = '';
+          copyHtml += '<button class="btn-copy" data-clipboard-snippet="" style="position:absolute;top:0;right:0;z-index:1;">';
+          copyHtml += '<i class="fas fa-copy"></i><span>' + copy + '</span>';
+          copyHtml += '</button>';
+          $(".post-detail pre").not('.gutter pre').wrap("<div class='codeBox' style='position:relative;width:100%;'></div>")
+          $(".post-detail pre").not('.gutter pre').before(copyHtml);
+          new ClipboardJS('.btn-copy', {
+            target: function (trigger) {
+              return trigger.nextElementSibling;
+            }
+          });
+        }
+        initCopyCode();
+        $('.btn-copy').unbind('click').bind('click', function () {
+          doSomething();
+        })
+        $(document).unbind('keypress').bind('keypress', function (e) {
+          if (e.ctrlKey && e.keyCode == 67) {
+            doSomething();
+          }
+        })
+
+        function doSomething() {
+          that.$notify({
+            title: "成功",
+            content: "代碼已覆制，請遵守相關授權協議。",
+            type: 'success'
+          })
+        }
+      },
+      methods: {
+      },
+      created() { }
+    })
+  </script>
+  
+
+<!-- 图片懒加载 -->
+<script defer src="https://unpkg.com/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+<!-- 卡片滚动动画 -->
+   
+
+<!-- 评论所需js -->
+
+  
+        <script>
+  var giscusComment = {};
+
+  function check_giscus() {
+    let isDark = JSON.parse(localStorage.getItem('dark')) || JSON.parse('false');
+    if (isDark) {
+      giscusComment.Theme = 'dark';
+    } else {
+      giscusComment.Theme = 'light';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function load_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = {"on":true,"repo":"dingbangli/giscus","repo-id":"R_kgDOLqqkaQ","category":"Announcements","category-id":"DIC_kwDOLqqkac4Cefv2","mapping":"url","strict":"0","emit-metadata":"0","reactions-enabled":"1","lang":"zh-TW","theme":{"light":"light","dark":"dark"}};
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k => {
+      if (k != "theme") {
+        script.setAttribute('data-' + k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', giscusComment.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: giscusComment.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+
+  $(document).ready(load_giscus);
+  document.addEventListener('pjax:complete', function () {
+    load_giscus();
+  });
+
+  $('.dark').click(function () {
+    setTimeout(() => {
+      dark_giscus();
+    });
+  })
+</script>
+      
+
+
+<!-- 鼠标点击特效 -->
+<!-- 爱心点击 -->
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 999; pointer-events: none;" ></canvas>
+    <script async src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script async src="/blog.github.io/js/cursor/explosion.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!-- 轮播图标签 -->
+<script>
+  var bambooSwiperTag = {};
+  function load_swiper() {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    loadCSS("https://unpkg.com/swiper@6/swiper-bundle.min.css")
+    loadScript("https://unpkg.com/swiper@6/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    bambooSwiperTag.swiper = new Swiper('.post-swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      autoplay: true ? {
+        delay: 3000,
+        stopOnLastSlide: false,
+        disableOnInteraction: false,
+      } : false,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      on:{
+        init: function(){
+          swiperAnimateCache(this); //隐藏动画元素 
+          swiperAnimate(this); //初始化完成开始动画
+        }, 
+        slideChangeTransitionEnd: function(){ 
+          swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+          //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+        } 
+      }
+    });
+  }
+
+  document.addEventListener('pjax:complete', function () {
+    if (!document.querySelectorAll(".post-swiper-container")[0]) return;
+    if (typeof bambooSwiperTag.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+    <!-- pjax -->
+    
+
+<!-- pjax -->
+
+
+  <script src="/blog.github.io/js/pjax@0.2.8/index.js"></script>
+  
+    <div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+	<script>
+    document.addEventListener('pjax:complete', function () {
+      window.HideLoading();
+    })
+    document.addEventListener('pjax:send', function () {
+      window.ShowLoading();
+    })
+    document.addEventListener('pjax:error', function () {
+      window.HideLoading();
+    })
+	</script>
+</div>
+
+  
+
+  <script>
+    var pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([no-pjax])',   // 拦截正常带链接的 a 标签
+      selectors: ["#pjax-container","title"],                                   // 根据实际需要确认重载区域
+      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: 5000
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+
+    })
+    
+    document.addEventListener('pjax:complete', function () {
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.location.href = e.triggerElement.href;
+    })
+    
+    // 刷新不从顶部开始
+    document.addEventListener("DOMContentLoaded", function () {
+      history.scrollRestoration = 'auto';
+    })
+  </script>
+
+
+
+  </body>
+</html>
