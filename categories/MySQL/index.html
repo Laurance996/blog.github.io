@@ -1161,7 +1161,7 @@ Step.1 先修改 MySQL Config 讓之後建立的資料庫都使用編碼 UTF81vi
             <span class="post-time">2022-08-03</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">MariaDB - CentOS 7 yum 安裝源 ( yum_repo )</a>
+            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/">MySQL dump - 備份 &amp; 還原資料庫</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -1183,27 +1183,31 @@ Step.1 先修改 MySQL Config 讓之後建立的資料庫都使用編碼 UTF81vi
             </div>
           </div>
           <div class="post-img-mobile">
-            <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+            <a href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
             
 
-{ yum repo }1234567891011121314151617cat &lt;&lt;EOF | tee /etc/yum.repos.d/MariaDB.repo# MariaDB 10.5 CentOS reposito
+備份單一資料庫1mysqldump -h hostname -u root -p database_name &gt; backup.sql;
+
+
+
+備份資料庫中單一資料表1mysqldump -u root -p database_n
           </div>
         </div>
         <div class="post-more">
-          <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">
+          <a href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/">
             <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
-        <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+        <a href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
@@ -1275,6 +1279,62 @@ Master Slave Replication 的架構
             <span class="post-time">2022-08-03</span>
           </div>
           <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">MariaDB - CentOS 7 yum 安裝源 ( yum_repo )</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/MySQL/">MySQL</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+{ yum repo }1234567891011121314151617cat &lt;&lt;EOF | tee /etc/yum.repos.d/MariaDB.repo# MariaDB 10.5 CentOS reposito
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-08-03</span>
+          </div>
+          <div class="post-title">
             <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-%E5%B8%B8%E7%94%A8%E8%AA%9E%E6%B3%95/">MySQL - 常用語法整理</a>
           </div>
           <div class="post-meta">
@@ -1322,7 +1382,7 @@ Master Slave Replication 的架構
         </div>
         <div class="post-more">
           <a href="/blog.github.io/2022/08/03/Mysql-%E5%B8%B8%E7%94%A8%E8%AA%9E%E6%B3%95/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1330,66 +1390,6 @@ Master Slave Replication 的架構
         <a href="/blog.github.io/2022/08/03/Mysql-%E5%B8%B8%E7%94%A8%E8%AA%9E%E6%B3%95/" style="background-size: cover; 
           background-position: center center;">
           <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/LJaHjMoZ3UqCTD8.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/LJaHjMoZ3UqCTD8.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="flex-direction: row-reverse;   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2022-08-03</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/">MySQL dump - 備份 &amp; 還原資料庫</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MySQL/" rel="tag">MySQL</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/blog.github.io/categories/MySQL/">MySQL</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            
-
-備份單一資料庫1mysqldump -h hostname -u root -p database_name &gt; backup.sql;
-
-
-
-備份資料庫中單一資料表1mysqldump -u root -p database_n
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/blog.github.io/2022/08/03/Mysql-mysqldump%E6%93%8D%E4%BD%9C/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
