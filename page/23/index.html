@@ -1063,14 +1063,14 @@
             <span class="post-time">2022-08-03</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2022/08/03/Linux-%E6%A9%9F%E5%99%A8%E7%99%BB%E5%85%A5%E4%BA%8C%E9%9A%8E%E6%AE%B5%E8%AA%8D%E8%AD%89MFA/">Linux - 建立 MFA 二階段認證</a>
+            <a class="post-title-link" href="/blog.github.io/2022/08/03/Linux-%E5%88%AA%E9%99%A4%E6%AE%AD%E5%B1%8D%E7%A8%8B%E5%BA%8F/">Linux - 如何刪除殭屍程序</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
               <!-- 文章详情页的标签 -->
 
     <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MFA/" rel="tag">MFA</a></li></ul>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Linux/" rel="tag">Linux</a></li></ul>
 
             </div>
             <div class="post-categories">
@@ -1085,29 +1085,34 @@
             </div>
           </div>
           <div class="post-img-mobile">
-            <a href="/blog.github.io/2022/08/03/Linux-%E6%A9%9F%E5%99%A8%E7%99%BB%E5%85%A5%E4%BA%8C%E9%9A%8E%E6%AE%B5%E8%AA%8D%E8%AD%89MFA/" style="background-size: cover; 
+            <a href="/blog.github.io/2022/08/03/Linux-%E5%88%AA%E9%99%A4%E6%AE%AD%E5%B1%8D%E7%A8%8B%E5%BA%8F/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/HX6NS8ulqECv34K.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/HX6NS8ulqECv34K.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
             
 
-手機先下載 APPapp store 搜索 : Twilio Authygoogleplay store  搜索 : Twilio Authy 2-Factor Authentication
+找出殭屍程序1ps -Al | grep -w Z
 
-輸入使用要設定的帳號輸入切換成使用者 la
+
+從找到的程序資訊中，分析出 pid1ps -Al | grep -w Z | awk &#x27;&#123;print $4&#125;&#x27;
+
+
+
+將分析出來的 pid 
           </div>
         </div>
         <div class="post-more">
-          <a href="/blog.github.io/2022/08/03/Linux-%E6%A9%9F%E5%99%A8%E7%99%BB%E5%85%A5%E4%BA%8C%E9%9A%8E%E6%AE%B5%E8%AA%8D%E8%AD%89MFA/">
+          <a href="/blog.github.io/2022/08/03/Linux-%E5%88%AA%E9%99%A4%E6%AE%AD%E5%B1%8D%E7%A8%8B%E5%BA%8F/">
             <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
-        <a href="/blog.github.io/2022/08/03/Linux-%E6%A9%9F%E5%99%A8%E7%99%BB%E5%85%A5%E4%BA%8C%E9%9A%8E%E6%AE%B5%E8%AA%8D%E8%AD%89MFA/" style="background-size: cover; 
+        <a href="/blog.github.io/2022/08/03/Linux-%E5%88%AA%E9%99%A4%E6%AE%AD%E5%B1%8D%E7%A8%8B%E5%BA%8F/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/HX6NS8ulqECv34K.webp" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/HX6NS8ulqECv34K.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
@@ -1310,62 +1315,6 @@ EX:
             <span class="post-time">2022-08-03</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">MariaDB - CentOS 7 yum 安裝源 ( yum_repo )</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MySQL/" rel="tag">MySQL</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/blog.github.io/categories/MySQL/">MySQL</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            
-
-{ yum repo }1234567891011121314151617cat &lt;&lt;EOF | tee /etc/yum.repos.d/MariaDB.repo# MariaDB 10.5 CentOS reposito
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2022-08-03</span>
-          </div>
-          <div class="post-title">
             <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-%E4%B8%BB%E5%BE%9E%E8%B7%9F%E9%9A%A8/">MySQL - Replication 主從式跟隨架構設定</a>
           </div>
           <div class="post-meta">
@@ -1403,7 +1352,7 @@ Master Slave Replication 的架構
         </div>
         <div class="post-more">
           <a href="/blog.github.io/2022/08/03/Mysql-%E4%B8%BB%E5%BE%9E%E8%B7%9F%E9%9A%A8/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1411,6 +1360,62 @@ Master Slave Replication 的架構
         <a href="/blog.github.io/2022/08/03/Mysql-%E4%B8%BB%E5%BE%9E%E8%B7%9F%E9%9A%A8/" style="background-size: cover; 
           background-position: center center;">
           <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-08-03</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">MariaDB - CentOS 7 yum 安裝源 ( yum_repo )</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/MySQL/">MySQL</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+{ yum repo }1234567891011121314151617cat &lt;&lt;EOF | tee /etc/yum.repos.d/MariaDB.repo# MariaDB 10.5 CentOS reposito
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
@@ -1577,64 +1582,6 @@ Location 的匹配模式
             <span class="post-time">2022-08-03</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2022/08/03/Nginx-%E5%8A%A0%E5%85%A5PageSpeed%E6%A8%A1%E7%B5%84%E5%8F%8Anginx-http-concat/">Nginx - 加入 PageSpeed 模組及 nginx-http-concat</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Nginx/" rel="tag">Nginx</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/blog.github.io/categories/Web/">Web</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/blog.github.io/2022/08/03/Nginx-%E5%8A%A0%E5%85%A5PageSpeed%E6%A8%A1%E7%B5%84%E5%8F%8Anginx-http-concat/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/yEeAslwhQVHmfWj.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/yEeAslwhQVHmfWj.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            
-
-PageSpeed模組 (自動優化網站動態)下載
-
-12345wget https://github.com/apache/incubator-pagespeed-ngx/archive/v1.13.35.2-stable.tar.gz
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/blog.github.io/2022/08/03/Nginx-%E5%8A%A0%E5%85%A5PageSpeed%E6%A8%A1%E7%B5%84%E5%8F%8Anginx-http-concat/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/blog.github.io/2022/08/03/Nginx-%E5%8A%A0%E5%85%A5PageSpeed%E6%A8%A1%E7%B5%84%E5%8F%8Anginx-http-concat/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/yEeAslwhQVHmfWj.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/yEeAslwhQVHmfWj.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2022-08-03</span>
-          </div>
-          <div class="post-title">
             <a class="post-title-link" href="/blog.github.io/2022/08/03/Nginx-log_format%E9%85%8D%E7%BD%AE/">Nginx - log_format 參數配置</a>
           </div>
           <div class="post-meta">
@@ -1693,7 +1640,7 @@ $time_local
         </div>
         <div class="post-more">
           <a href="/blog.github.io/2022/08/03/Nginx-log_format%E9%85%8D%E7%BD%AE/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1701,6 +1648,65 @@ $time_local
         <a href="/blog.github.io/2022/08/03/Nginx-log_format%E9%85%8D%E7%BD%AE/" style="background-size: cover; 
           background-position: center center;">
           <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-08-03</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2022/08/03/Nginx-%E5%B8%B8%E7%94%A8%E7%9A%84LOG%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/">Nginx - 常用的 LOG 搜索指令</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/Nginx/" rel="tag">Nginx</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/Web/">Web</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2022/08/03/Nginx-%E5%B8%B8%E7%94%A8%E7%9A%84LOG%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/7fFJOZ5PcnuSvkQ.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/7fFJOZ5PcnuSvkQ.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+統計IP訪問量1awk &#x27;&#123;print $l&#125;&#x27; /var/log/nginx-access.log | sort -n | uniq | wc -l
+
+
+查看某一時間段 IP 的訪問量1grep
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2022/08/03/Nginx-%E5%B8%B8%E7%94%A8%E7%9A%84LOG%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/">
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2022/08/03/Nginx-%E5%B8%B8%E7%94%A8%E7%9A%84LOG%E6%90%9C%E7%B4%A2%E6%8C%87%E4%BB%A4/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/7fFJOZ5PcnuSvkQ.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/7fFJOZ5PcnuSvkQ.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
@@ -2176,7 +2182,7 @@ $time_local
         <div class="webinfo-item">
           <div>最後活動時間：</div>
           
-            <div id="last-update" style="display: none;">Mon Nov 03 2025 16:39:54 GMT+0800 (台北標準時間)</div>
+            <div id="last-update" style="display: none;">Mon Nov 03 2025 16:46:36 GMT+0800 (台北標準時間)</div>
             <div id="last-update-show">2025-11-03 日</div>
           
         </div>
