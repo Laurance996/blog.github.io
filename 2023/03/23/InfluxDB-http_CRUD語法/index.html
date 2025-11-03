@@ -527,7 +527,7 @@
 
 <hr>
 <hr>
-<h3 id="使用-POST-請求-將數據一起寫入-DB"><a href="#使用-POST-請求-將數據一起寫入-DB" class="headerlink" title="使用 POST 請求 將數據一起寫入 DB"></a>使用 POST 請求 <code>將數據一起寫入 DB</code></h3><pre><code class="sql">curl -i -XPOST &#39;http://172.16.0.222:8086/write?db=testdb&#39; -u laurance:kiwi888 --data-binary &#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000
+<h3 id="使用-POST-請求-將數據一起寫入-DB"><a href="#使用-POST-請求-將數據一起寫入-DB" class="headerlink" title="使用 POST 請求 將數據一起寫入 DB"></a>使用 POST 請求 <code>將數據一起寫入 DB</code></h3><pre><code class="language-sql">curl -i -XPOST &#39;http://172.16.0.222:8086/write?db=testdb&#39; -u laurance:kiwi888 --data-binary &#39;cpu_load_short,host=server01,region=us-west value=0.64 1434055562000000000
 &gt; cpu_load_short,host=server02,region=us-west value=0.55 1422568543702900257
 &gt; cpu_load_short,direction=in,host=server01,region=us-west value=2.0 1422568543702900257&#39;
 
@@ -542,7 +542,7 @@
 </code></pre>
 <hr>
 <hr>
-<h3 id="使用-POST-請求-將文件-TXT-寫入-DB"><a href="#使用-POST-請求-將文件-TXT-寫入-DB" class="headerlink" title="使用 POST 請求 將文件 TXT 寫入 DB"></a>使用 POST 請求 <code>將文件 TXT 寫入 DB</code></h3><pre><code class="sql">curl -i -XPOST &#39;http://172.16.0.222:8086/write?db=testdb&#39; -u laurance:kiwi888 --data-binary @influxdb.txt
+<h3 id="使用-POST-請求-將文件-TXT-寫入-DB"><a href="#使用-POST-請求-將文件-TXT-寫入-DB" class="headerlink" title="使用 POST 請求 將文件 TXT 寫入 DB"></a>使用 POST 請求 <code>將文件 TXT 寫入 DB</code></h3><pre><code class="language-sql">curl -i -XPOST &#39;http://172.16.0.222:8086/write?db=testdb&#39; -u laurance:kiwi888 --data-binary @influxdb.txt
 
 
     HTTP/1.1 204 No Content
@@ -619,25 +619,16 @@
   <div class="post-nav-prev post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/fZFLtgcbinaWv2J.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fZFLtgcbinaWv2J.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
     </div>
-    <a href="/blog.github.io/2023/05/01/HUGO-%E6%B7%BB%E5%8A%A0Valine%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1_(FixIt)/" class="post-nav-link">
+    <a href="/blog.github.io/2023/03/23/InfluxDB-%E5%BB%BA%E7%AB%8B%E4%BD%BF%E7%94%A8%E8%80%85%E5%AF%86%E7%A2%BC/" class="post-nav-link">
       <div class="title">
         <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">HUGO - 添加 Valine 評論系統 (Fixlt)</div>
+        <div class="title-text">InfluxDB - 如何建立使用者密碼及相關權限</div>
       </div>
       
       <!-- <div class="content">
-        
-
-Hugo 添加評論系統紀錄
-
-註冊 LeanCloud 帳號
-ps. 選擇國際板註冊
-
-LeanCloud 官網
-
-
+        InfluxDB 預設是沒有密碼的,使用 influx 進入介面操作即可12345[root@laurance ~]# 
       </div> -->
     </a>
   </div>
@@ -648,15 +639,16 @@ LeanCloud 官網
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/fZFLtgcbinaWv2J.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/fZFLtgcbinaWv2J.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/blog.github.io/2023/03/23/InfluxDB-%E5%BB%BA%E7%AB%8B%E4%BD%BF%E7%94%A8%E8%80%85%E5%AF%86%E7%A2%BC/" class="post-nav-link">
+    <a href="/blog.github.io/2023/03/22/GCP-ChatGPT%E4%B8%B2%E6%8E%A5Firebase%E5%8F%8ALinebot/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">InfluxDB - 如何建立使用者密碼及相關權限</div>
+        <div class="title-text">GCP - ChatGPT 串接 Firebase 及 Linebot</div>
       </div>
       <!-- <div class="content">
-        InfluxDB 預設是沒有密碼的,使用 influx 進入介面操作即可12345[root@laurance ~]# 
+        建立與設定線上即時性資料庫 Firebase Realtime database
+https://console.fir
       </div> -->
     </a>
   </div>

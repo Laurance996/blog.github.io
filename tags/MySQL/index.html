@@ -549,7 +549,7 @@
             <span class="post-time">2023-01-19</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/">MySQL - 主從報錯 Error &#39;Duplicate entry &#39;XXXXX&#39; for key &#39;XXX&#39;&#39; on query. ( error 1062 ) 解決方法</a>
+            <a class="post-title-link" href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/">MySQL - 主從報錯 Table &#39;mysql.gtid_slave_pos&#39; doesn&#39;t exist in engine ( error 1932 ) 解決方法</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -571,31 +571,29 @@
             </div>
           </div>
           <div class="post-img-mobile">
-            <a href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/" style="background-size: cover; 
+            <a href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
             
-error 1062 —- 主鍵沖突，出現這種情況就是從庫出現插入操作，主庫又重新來了一遍 iothread 沒問題 sqlthread 出錯
-
 
 解決方案:
 
-12345stop slave;set global sql_slave_s
+將 DB 所有資料庫備份為 SQL檔1mysqldump -uroot -p -S /var/lib/mysql/master01/mysql01.sock --all-databases &gt; all_databas
           </div>
         </div>
         <div class="post-more">
-          <a href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/">
+          <a href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/">
             <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
-        <a href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/" style="background-size: cover; 
+        <a href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
@@ -671,7 +669,7 @@ error 1062 —- 主鍵沖突，出現這種情況就是從庫出現插入操作�
             <span class="post-time">2023-01-19</span>
           </div>
           <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/">MySQL - 主從報錯 Table &#39;mysql.gtid_slave_pos&#39; doesn&#39;t exist in engine ( error 1932 ) 解決方法</a>
+            <a class="post-title-link" href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/">MySQL - 主從報錯 Error &#39;Duplicate entry &#39;XXXXX&#39; for key &#39;XXX&#39;&#39; on query. ( error 1062 ) 解決方法</a>
           </div>
           <div class="post-meta">
             <div class="post-tags">
@@ -693,29 +691,31 @@ error 1062 —- 主鍵沖突，出現這種情況就是從庫出現插入操作�
             </div>
           </div>
           <div class="post-img-mobile">
-            <a href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/" style="background-size: cover; 
+            <a href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/" style="background-size: cover; 
               background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
           </div>
           <div class="post-content">
             
+error 1062 —- 主鍵沖突，出現這種情況就是從庫出現插入操作，主庫又重新來了一遍 iothread 沒問題 sqlthread 出錯
+
 
 解決方案:
 
-將 DB 所有資料庫備份為 SQL檔1mysqldump -uroot -p -S /var/lib/mysql/master01/mysql01.sock --all-databases &gt; all_databas
+12345stop slave;set global sql_slave_s
           </div>
         </div>
         <div class="post-more">
-          <a href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/">
+          <a href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/">
             <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
       <div class="post-img">
-        <a href="/blog.github.io/2023/01/19/Mysql-Error_Table_'mysql_gtid_slave_pos'_doesn't_exist_in_engine/" style="background-size: cover; 
+        <a href="/blog.github.io/2023/01/19/Mysql-1062_%E4%B8%BB%E5%BE%9E%E9%8C%AF%E8%AA%A4Error_'Duplicate_entry_'XXXXX'_for_key_'XXX''_on_query/" style="background-size: cover; 
           background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/WuitpXYMU3PskKy.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/jDbPCeY9xBdUt64.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
@@ -1222,6 +1222,62 @@ Step.1 先修改 MySQL Config 讓之後建立的資料庫都使用編碼 UTF81vi
             <span class="post-time">2022-08-03</span>
           </div>
           <div class="post-title">
+            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">MariaDB - CentOS 7 yum 安裝源 ( yum_repo )</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MySQL/" rel="tag">MySQL</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
+
+<div class="article-category">
+  <i class="iconfont iconbookmark1"></i>
+  <a class="article-category-link" href="/blog.github.io/categories/MySQL/">MySQL</a>
+</div>
+
+
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+            </a>
+          </div>
+          <div class="post-content">
+            
+
+{ yum repo }1234567891011121314151617cat &lt;&lt;EOF | tee /etc/yum.repos.d/MariaDB.repo# MariaDB 10.5 CentOS reposito
+          </div>
+        </div>
+        <div class="post-more">
+          <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
+      </div>
+      <div class="post-img">
+        <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+        </a>
+      </div>
+    </article>
+  
+    
+    <article class="post reveal" style="   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2022-08-03</span>
+          </div>
+          <div class="post-title">
             <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-%E4%B8%BB%E5%BE%9E%E8%B7%9F%E9%9A%A8/">MySQL - Replication 主從式跟隨架構設定</a>
           </div>
           <div class="post-meta">
@@ -1259,7 +1315,7 @@ Master Slave Replication 的架構
         </div>
         <div class="post-more">
           <a href="/blog.github.io/2022/08/03/Mysql-%E4%B8%BB%E5%BE%9E%E8%B7%9F%E9%9A%A8/">
-            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
           </a>
         </div>
       </div>
@@ -1267,62 +1323,6 @@ Master Slave Replication 的架構
         <a href="/blog.github.io/2022/08/03/Mysql-%E4%B8%BB%E5%BE%9E%E8%B7%9F%E9%9A%A8/" style="background-size: cover; 
           background-position: center center;">
           <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/uG7MBvxmepwjkPL.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-        </a>
-      </div>
-    </article>
-  
-    
-    <article class="post reveal" style="   ">
-      <div class="post-main">
-        <div class="post-info">
-          <div class="post-time">
-            <i class="fas fa-clock" aria-hidden="true"></i>
-            <span class="post-time">2022-08-03</span>
-          </div>
-          <div class="post-title">
-            <a class="post-title-link" href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">MariaDB - CentOS 7 yum 安裝源 ( yum_repo )</a>
-          </div>
-          <div class="post-meta">
-            <div class="post-tags">
-              <!-- 文章详情页的标签 -->
-
-    <i class="iconfont icontag"></i>
-    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog.github.io/tags/MySQL/" rel="tag">MySQL</a></li></ul>
-
-            </div>
-            <div class="post-categories">
-              <!-- 文章详情页的分类 -->
-
-<div class="article-category">
-  <i class="iconfont iconbookmark1"></i>
-  <a class="article-category-link" href="/blog.github.io/categories/MySQL/">MySQL</a>
-</div>
-
-
-            </div>
-          </div>
-          <div class="post-img-mobile">
-            <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
-              background-position: center center;">
-              <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-            </a>
-          </div>
-          <div class="post-content">
-            
-
-{ yum repo }1234567891011121314151617cat &lt;&lt;EOF | tee /etc/yum.repos.d/MariaDB.repo# MariaDB 10.5 CentOS reposito
-          </div>
-        </div>
-        <div class="post-more">
-          <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/">
-            <i class="iconfont iconmore" pointer style="  " title="阅读更多"></i>
-          </a>
-        </div>
-      </div>
-      <div class="post-img">
-        <a href="/blog.github.io/2022/08/03/Mysql-yum%E5%AE%89%E8%A3%9D/" style="background-size: cover; 
-          background-position: center center;">
-          <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
       </div>
     </article>
