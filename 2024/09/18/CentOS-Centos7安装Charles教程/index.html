@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>GCP - 硬碟擴容 | Laurance&#39;s Note</title>
+  <title>CentOS - Centos7 安装 Charles 教程 | Laurance&#39;s Note</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/blog.github.io/favicon2.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -462,21 +462,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://s2.loli.net/2024/10/25/p4F9uAD7WHNOQCv.jpg')">
+  background-position: center center;position: relative;background-image:url('https://s2.loli.net/2024/10/25/fA54mBN7JFauxHs.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        GCP - 硬碟擴容
+        CentOS - Centos7 安装 Charles 教程
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2022-10-06 |
+          <i class="fas fa-calendar"></i> Published in：2024-09-18 |
         </span>
       
 
@@ -484,8 +484,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/blog.github.io/categories/GCP/" class="post-detail-header_category">
-              GCP
+            <a href="/blog.github.io/categories/CentOS/" class="post-detail-header_category">
+              CentOS
             </a>
           
         </span>
@@ -509,45 +509,9 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <hr>
-<hr>
-<hr>
-<h1 id="在-GCP-上，點選硬盤，直接修改想要的硬盤大小-只能擴大、不能縮小"><a href="#在-GCP-上，點選硬盤，直接修改想要的硬盤大小-只能擴大、不能縮小" class="headerlink" title="在 GCP 上，點選硬盤，直接修改想要的硬盤大小 ( 只能擴大、不能縮小 )"></a><strong>在 GCP 上，點選硬盤，直接修改想要的硬盤大小 ( 只能擴大、不能縮小 )</strong></h1><p><code>這邊測試將容量增加到 1.5T</code></p>
-<hr>
-<hr>
-<hr>
-<p>   <img src="https://s2.loli.net/2024/04/28/KHbkM4RcOu6AWhp.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/04/28/KHbkM4RcOu6AWhp.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
-<hr>
-<hr>
-<hr>
-<p><strong>後台增加完硬碟容量後,到機器使用指令 <code>lsblk</code> 看一下目前的硬碟空間</strong></p>
-<hr>
-<p><strong>會發現從原本的 1.3T 變成 1.5T，但是用 <code>df -h</code>  卻沒看到空間增加</strong></p>
-<hr>
-<hr>
-<hr>
-<h1 id="擴大分割區"><a href="#擴大分割區" class="headerlink" title="擴大分割區"></a><strong>擴大分割區</strong></h1><hr>
-<hr>
-<h1 id="以下是針對-sda-的第一個分割區擴大"><a href="#以下是針對-sda-的第一個分割區擴大" class="headerlink" title="以下是針對 sda 的第一個分割區擴大"></a><strong>以下是針對 sda 的第一個分割區擴大</strong></h1><hr>
-<p><strong>安裝 <code>growpart</code> 套件</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install cloud<span class="operator">-</span>utils<span class="operator">-</span>growpart</span><br></pre></td></tr></table></figure>
+        <h1 id="H1-安装"><a href="#H1-安装" class="headerlink" title="H1 安装"></a>H1 安装</h1><p>创建文件 &#x2F;etc&#x2F;yum.repos.d&#x2F;Charles.repo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[charlesproxy]</span><br><span class="line">name=Charles Proxy Repository</span><br><span class="line">baseurl=https://www.charlesproxy.com/packages/yum</span><br><span class="line">gpgkey=https://www.charlesproxy.com/packages/yum/PublicKey</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<hr>
-<p><strong>使用 <code>growpart </code> 命令擴容該分區</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">growpart <span class="operator">/</span>dev<span class="operator">/</span>sda <span class="number">2</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<h3 id="擴大檔案系統空間"><a href="#擴大檔案系統空間" class="headerlink" title="擴大檔案系統空間"></a><em>擴大檔案系統空間</em></h3><h3 id="如果是-ext2-ext3-ext4-的-file-system，則用-resize2fs-如果是-xfs-則用-xfs-growfs"><a href="#如果是-ext2-ext3-ext4-的-file-system，則用-resize2fs-如果是-xfs-則用-xfs-growfs" class="headerlink" title="如果是 ext2 ext3 ext4 的 file system，則用 resize2fs  ,  如果是 xfs 則用 xfs_growfs"></a><em>如果是 <code>ext2</code> <code>ext3</code> <code>ext4</code> 的 file system，則用 <code>resize2fs</code>  ,  如果是 <code>xfs</code> 則用 <code>xfs_growfs</code></em></h3><hr>
-<p><strong><code>xfs</code> 檔案系統</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xfs_growfs <span class="operator">/</span>dev<span class="operator">/</span>sda2</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><strong><code>ext4</code> 檔案系統</strong></p>
-<pre><code class="language-sql">resize2fs /dev/sda2
-</code></pre>
-<hr>
 <hr>
 <hr>
 <hr>
@@ -557,8 +521,8 @@
         
         <div class="tags">
           
-            <a href="/blog.github.io/tags/GCP/" class="">
-              GCP
+            <a href="/blog.github.io/tags/CentOS/" class="">
+              CentOS
             </a>
           
         </div>
@@ -572,7 +536,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/blog.github.io/2022/10/06/GCP-硬碟擴容/" target="_blank" title="GCP - 硬碟擴容">https://laurance996.github.io/blog.github.io/2022/10/06/GCP-硬碟擴容/</a>
+    <a href="/blog.github.io/2024/09/18/CentOS-Centos7安装Charles教程/" target="_blank" title="CentOS - Centos7 安装 Charles 教程">https://laurance996.github.io/blog.github.io/2024/09/18/CentOS-Centos7安装Charles教程/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -590,43 +554,23 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/apcNqi2nrlEbAgO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/blog.github.io/2022/10/06/Docker-Install-docker-compose/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">Docker - Install docker-compose</div>
-      </div>
-      
-      <!-- <div class="content">
-        下載安裝包123sudo curl -L &quot;https://github.com/docker/compose
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/Ed4g3zN78KOPulf.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2024/10/25/cdLut7zAWfyXiJ3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/blog.github.io/2022/10/06/Kubernetes-Install_and_Set_Up_kubectl_on_Linux/" class="post-nav-link">
+    <a href="/blog.github.io/2024/09/17/testtest/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">Kubernetes - Install and Set Up kubectl on Linux</div>
+        <div class="title-text">testtest</div>
       </div>
       <!-- <div class="content">
-        
-CURL 官方安裝版本
+        😍😍😍
 
 
-(1) 在 Linux 上安裝帶有 curl 的 kubectl 二進位檔 (最新)1cu
       </div> -->
     </a>
   </div>
@@ -705,7 +649,7 @@ CURL 官方安裝版本
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8-GCP-%E4%B8%8A%EF%BC%8C%E9%BB%9E%E9%81%B8%E7%A1%AC%E7%9B%A4%EF%BC%8C%E7%9B%B4%E6%8E%A5%E4%BF%AE%E6%94%B9%E6%83%B3%E8%A6%81%E7%9A%84%E7%A1%AC%E7%9B%A4%E5%A4%A7%E5%B0%8F-%E5%8F%AA%E8%83%BD%E6%93%B4%E5%A4%A7%E3%80%81%E4%B8%8D%E8%83%BD%E7%B8%AE%E5%B0%8F"><span class="toc-text">在 GCP 上，點選硬盤，直接修改想要的硬盤大小 ( 只能擴大、不能縮小 )</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%B4%E5%A4%A7%E5%88%86%E5%89%B2%E5%8D%80"><span class="toc-text">擴大分割區</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E9%87%9D%E5%B0%8D-sda-%E7%9A%84%E7%AC%AC%E4%B8%80%E5%80%8B%E5%88%86%E5%89%B2%E5%8D%80%E6%93%B4%E5%A4%A7"><span class="toc-text">以下是針對 sda 的第一個分割區擴大</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%B4%E5%A4%A7%E6%AA%94%E6%A1%88%E7%B3%BB%E7%B5%B1%E7%A9%BA%E9%96%93"><span class="toc-text">擴大檔案系統空間</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%98%AF-ext2-ext3-ext4-%E7%9A%84-file-system%EF%BC%8C%E5%89%87%E7%94%A8-resize2fs-%E5%A6%82%E6%9E%9C%E6%98%AF-xfs-%E5%89%87%E7%94%A8-xfs-growfs"><span class="toc-text">如果是 ext2 ext3 ext4 的 file system，則用 resize2fs  ,  如果是 xfs 則用 xfs_growfs</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#H1-%E5%AE%89%E8%A3%85"><span class="toc-text">H1 安装</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>

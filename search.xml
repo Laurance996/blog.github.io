@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>CentOS - Centos7 安装 Charles 教程</title>
+      <link href="/blog.github.io/2024/09/18/CentOS-Centos7%E5%AE%89%E8%A3%85Charles%E6%95%99%E7%A8%8B/"/>
+      <url>/blog.github.io/2024/09/18/CentOS-Centos7%E5%AE%89%E8%A3%85Charles%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h1 id="H1-安装"><a href="#H1-安装" class="headerlink" title="H1 安装"></a>H1 安装</h1><p>创建文件 &#x2F;etc&#x2F;yum.repos.d&#x2F;Charles.repo</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[charlesproxy]</span><br><span class="line">name=Charles Proxy Repository</span><br><span class="line">baseurl=https://www.charlesproxy.com/packages/yum</span><br><span class="line">gpgkey=https://www.charlesproxy.com/packages/yum/PublicKey</span><br><span class="line"></span><br></pre></td></tr></table></figure><hr><hr><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> CentOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CentOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>testtest</title>
       <link href="/blog.github.io/2024/09/17/testtest/"/>
       <url>/blog.github.io/2024/09/17/testtest/</url>
