@@ -2,7 +2,7 @@
     <!DOCTYPE html><html lang="zh-Hant"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TW 20260521_220005</title>
+    <title>TW 20260705_145234</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.dataTables.min.css">
     <style>
@@ -177,7 +177,7 @@ table th:hover {
 table td {
     padding: 13px 12px;
     border-bottom: 1px solid #eceff1;
-    font-size: 1.1em;
+    font-size: 1em;
     color: var(--c-text);
     transition: var(--transition);
     vertical-align: middle;
@@ -223,12 +223,12 @@ table th.sorting_desc { padding-right: 28px; }
    備註欄
 ═══════════════════════════════════════ */
 .remarks-cell {
-    font-size: 0.9em;
-    line-height: 1.85;
+    font-size: 0.78em;
+    line-height: 1.5;
     color: #37474f;
-    padding: 12px 14px !important;
+    padding: 7px 10px !important;
     background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
-    border-left: 4px solid #1976d2;
+    border-left: 3px solid #1976d2;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     word-break: break-word;
     white-space: normal;
@@ -241,29 +241,45 @@ table th.sorting_desc { padding-right: 28px; }
 .remarks-cell .signal-item   { color: #00695c; font-weight: 700; }
 .remarks-cell strong         { color: #c62828; font-weight: 900; }
 
+/* reason-item chip 樣式 */
 .remarks-cell .reason-item {
     display: inline-block;
-    padding: 2px 0;
-    border-radius: 4px;
+    padding: 1px 6px;
+    margin: 1px 2px 1px 0;
+    border-radius: 99px;
+    font-size: 1.2em;
+    font-weight: 600;
+    background: rgba(96,125,139,0.08);
+    border: 1px solid rgba(96,125,139,0.18);
+    color: #455a64;
+    white-space: nowrap;
 }
 .remarks-cell .reason-risk,
 .remarks-cell .reason-warning {
-    color: #e65100;
-    font-weight: 800;
+    background: rgba(230,81,0,0.10);
+    border-color: rgba(230,81,0,0.30);
+    color: #bf360c;
+    font-weight: 700;
 }
 .remarks-cell .reason-strategy,
 .remarks-cell .reason-emphasis {
-    color: #1565c0;
-    font-weight: 800;
+    background: rgba(21,101,192,0.09);
+    border-color: rgba(21,101,192,0.28);
+    color: #0d47a1;
+    font-weight: 700;
 }
 .remarks-cell .reason-turnover {
-    color: #d84315;
+    background: rgba(216,67,21,0.09);
+    border-color: rgba(216,67,21,0.28);
+    color: #bf360c;
     font-weight: 700;
 }
 .remarks-cell .reason-filter,
 .remarks-cell .reason-pattern,
 .remarks-cell .reason-legacy,
 .remarks-cell .reason-normal {
+    background: rgba(55,71,79,0.07);
+    border-color: rgba(55,71,79,0.18);
     color: #37474f;
     font-weight: 600;
 }
@@ -290,9 +306,87 @@ table th.sorting_desc { padding-right: 28px; }
 .status.down { color: var(--c-support);  }   /* 跌破中軌 → 藍 */
 .status.in   { color: #aaa; }               /* 通道內 → 灰 */
 .boll.upper  { color: var(--c-pressure); }  /* 上軌壓力 */
-.boll.middle { color: var(--c-green);  }  /* 中軌均值 */
+.boll.middle { color: var(--c-green);  }  /* 中軌均値 */
 .boll.lower  { color: var(--c-support);  }  /* 下軌支撐 */
 .pct         { color: #df0505; font-size: 1rem; }
+
+/* 布林結構 chip 標籤 */
+.bb-header {
+    display: block;
+    font-weight: 700;
+    font-size: 0.86em;
+    color: #b0bec5;
+    margin-bottom: 3px;
+}
+.bb-score-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 0.76em;
+    font-weight: 800;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.bb-score-badge.bb-score-hi  { background: #1b5e20; color: #a5d6a7; }
+.bb-score-badge.bb-score-mid { background: #e65100; color: #ffe0b2; }
+.bb-score-badge.bb-score-lo  { background: #4a148c; color: #ce93d8; }
+.bb-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 2px;
+}
+.bb-chip {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 0.73em;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.7;
+}
+.bb-chip-ok   { background: rgba(56,142,60,0.18);  color: #81c784; border: 1px solid rgba(56,142,60,0.35); }
+.bb-chip-warn { background: rgba(230,81,0,0.15);   color: #ffb74d; border: 1px solid rgba(230,81,0,0.35); }
+.bb-chip-bad  { background: rgba(183,28,28,0.15);  color: #ef9a9a; border: 1px solid rgba(183,28,28,0.35); }
+
+/* 布林結構 chip 標籤 */
+.bb-header {
+    display: block;
+    font-weight: 700;
+    font-size: 0.88em;
+    color: #b0bec5;
+    margin-bottom: 3px;
+}
+.bb-score-badge {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 0.78em;
+    font-weight: 800;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.bb-score-badge.bb-score-hi  { background: #1b5e20; color: #a5d6a7; }
+.bb-score-badge.bb-score-mid { background: #e65100; color: #ffe0b2; }
+.bb-score-badge.bb-score-lo  { background: #4a148c; color: #ce93d8; }
+.bb-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-top: 2px;
+}
+.bb-chip {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 0.74em;
+    font-weight: 600;
+    white-space: nowrap;
+    line-height: 1.6;
+}
+.bb-chip-ok   { background: rgba(56,142,60,0.18);  color: #81c784; border: 1px solid rgba(56,142,60,0.35); }
+.bb-chip-warn { background: rgba(230,81,0,0.15);   color: #ffb74d; border: 1px solid rgba(230,81,0,0.35); }
+.bb-chip-bad  { background: rgba(183,28,28,0.15);  color: #ef9a9a; border: 1px solid rgba(183,28,28,0.35); }
 
 /* 欄標題副說明 */
 .sub { font-size: 1.2rem; color: #fff; font-weight: 400; text-transform: none; letter-spacing: 0; display: block; }
@@ -313,13 +407,14 @@ tr.row-data-poor:hover { background: #eeeeee !important; }
 
 /* 評分明細內嵌樣式 */
 .score-digest-inline {
-    display: inline-block;
+    display: block;
     color: #1565c0;
-    font-size: 0.82em;
+    font-size: 0.80em;
     font-weight: 700;
     background: rgba(21,101,192,0.07);
     border-radius: 4px;
     padding: 1px 5px;
+    margin-bottom: 3px;
 }
 
 /* ═══════════════════════════════════════
@@ -329,7 +424,7 @@ table td a {
     color: #1565c0;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 10px 15px;
     border-radius: var(--radius-sm);
     transition: var(--transition);
@@ -538,11 +633,10 @@ table td a:hover {
     background: linear-gradient(135deg, #3f51b5, #5c6bc0);
     color: #fff;
 }
-/* thead/tbody 欄寬對齊修正：搭配 scrollX 使用 */
-#trackingTable_wrapper .dataTables_scrollHeadInner,
-#trackingTable_wrapper .dataTables_scrollHeadInner table,
-#trackingTable_wrapper .dataTables_scrollBody table {
+/* 不使用 scrollX，靠外層 overflow-x:auto 處理水平滾動；確保表格滿寬 */
+#trackingTable_wrapper table.tracking-table {
     width: 100% !important;
+    table-layout: auto !important;
 }
 
 /* ═══════════════════════════════════════
@@ -1023,8 +1117,9 @@ table td a:hover {
 }
 .social-heat-hint {
     font-size: 0.74em;
-    color: #445566;
+    color: #546e7a;
     font-style: italic;
+    letter-spacing: 0.02em;
 }
 
 /* ── 市場情緒橫幅 ─────────────────────────────────────────── */
@@ -1052,24 +1147,25 @@ table td a:hover {
 .social-heat-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
+    align-items: flex-start;
 }
 
 /* ── 題材卡片 ─────────────────────────────────────────────── */
 .theme-tag {
     position: relative;
-    border-radius: 10px;
-    padding: 10px 13px 9px;
-    min-width: 150px;
-    max-width: 270px;
+    border-radius: 12px;
+    padding: 12px 15px 11px;
+    width: auto;
     background: #161d2c;
     border: 1px solid #243044;
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    cursor: default;
 }
 .theme-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     border-color: #4fc3f7;
 }
 
@@ -1111,6 +1207,23 @@ table td a:hover {
     color: #dde6f5;
     letter-spacing: 0.03em;
     flex-shrink: 0;
+}
+/* 可點擊的題材名稱（連結到 Threads 代表貼文）*/
+.theme-name-link {
+    font-weight: 800;
+    font-size: 0.95em;
+    color: #dde6f5;
+    letter-spacing: 0.03em;
+    flex-shrink: 0;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(79,195,247,0.4);
+    transition: color 0.15s, border-color 0.15s;
+    cursor: pointer;
+}
+.theme-name-link:hover {
+    color: #4fc3f7;
+    border-bottom-color: #4fc3f7;
+    text-shadow: 0 0 8px rgba(79,195,247,0.35);
 }
 
 /* 熱度 Badge */
@@ -1262,10 +1375,319 @@ table td a:hover {
 .src-dcard    { background: rgba(106,27,154,0.25); color: #ce93d8; border: 1px solid rgba(106,27,154,0.5); }
 .src-pricedf  { background: rgba(78,52,46,0.3);    color: #bcaaa4; border: 1px solid rgba(78,52,46,0.5); }
 
+/* ── Memory Insights 區塊 ──────────────────────────────────── */
+.mem-insights-block {
+    margin-top: 12px;
+    border-top: 1px dashed #1e2d42;
+    padding-top: 8px;
+}
+.mem-insights-summary {
+    font-size: 0.80em;
+    font-weight: 700;
+    color: #78909c;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    list-style: none;
+    outline: none;
+}
+.mem-insights-summary::-webkit-details-marker { display: none; }
+.mem-insights-summary:hover { color: #90a4ae; }
+.mem-meta {
+    font-weight: 400;
+    font-size: 0.88em;
+    color: #455a64;
+    margin-left: 8px;
+}
+.mem-insights-body {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.mem-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.mem-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    color: #546e7a;
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 70px;
+}
+.mem-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.mem-alias-chip {
+    font-size: 0.70em;
+    background: rgba(0,77,64,0.25);
+    border: 1px solid rgba(0,121,107,0.4);
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: #80cbc4;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+.mem-arrow { color: #546e7a; }
+.mem-conf  { color: #455a64; font-size: 0.85em; margin-left: 2px; }
+.mem-emerging-chip {
+    font-size: 0.70em;
+    background: rgba(230,81,0,0.18);
+    border: 1px solid rgba(230,81,0,0.4);
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: #ffb74d;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+.mem-momentum { color: #ff8a65; font-weight: 700; margin-left: 2px; }
+.mem-graph-chip {
+    font-size: 0.70em;
+    background: rgba(21,101,192,0.18);
+    border: 1px solid rgba(21,101,192,0.4);
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: #64b5f6;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.mem-weight { color: #1e88e5; font-weight: 700; }
+.mem-rotation-chip {
+    font-size: 0.70em;
+    background: rgba(74,20,140,0.20);
+    border: 1px solid rgba(123,31,162,0.4);
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: #ce93d8;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.mem-days { color: #ab47bc; font-weight: 600; }
+
+/* ════════════════════════════════════════════════════════
+   Knowledge Insights Panel (Phase 7)
+   ════════════════════════════════════════════════════════ */
+.ki-block {
+    margin-top: 8px;
+    background: rgba(15,30,50,0.85);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+.ki-summary {
+    cursor: pointer;
+    padding: 5px 12px;
+    font-size: 0.80em;
+    color: #80deea;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,131,143,0.12);
+}
+.ki-summary:hover { background: rgba(0,131,143,0.22); }
+.ki-body {
+    padding: 6px 12px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.ki-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 0.78em;
+}
+.ki-label {
+    color: #78909c;
+    font-size: 0.88em;
+    min-width: 72px;
+    flex-shrink: 0;
+}
+.ki-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.ki-meta {
+    color: #90a4ae;
+    font-size: 0.88em;
+}
+.ki-meta b { color: #80cbc4; }
+.ki-industry-chip {
+    font-size: 0.72em;
+    background: rgba(0,96,100,0.25);
+    border: 1px solid rgba(0,188,212,0.3);
+    border-radius: 10px;
+    padding: 2px 8px;
+    color: #80deea;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.ki-count {
+    background: rgba(0,188,212,0.2);
+    border-radius: 8px;
+    padding: 0 5px;
+    color: #4dd0e1;
+    font-weight: 700;
+}
+.ki-alias-chip {
+    font-size: 0.72em;
+    background: rgba(100,221,23,0.12);
+    border: 1px solid rgba(100,221,23,0.25);
+    border-radius: 10px;
+    padding: 2px 7px;
+    color: #aed581;
+}
+
+/* ════════════════════════════════════════════════════════
+   Phase 7 — Market Enrichment Layer
+   ════════════════════════════════════════════════════════ */
+
+/* 市場狀態徽章（顯示在市場情緒列）*/
+.regime-badge {
+    font-size: 0.68em; font-weight: 700;
+    border-radius: 20px; padding: 2px 7px;
+    white-space: nowrap;
+}
+.regime-bull     { background: rgba(76,175,80,0.2);  color: #81c784; border: 1px solid rgba(76,175,80,0.5); }
+.regime-bear     { background: rgba(239,83,80,0.2);  color: #ef9a9a; border: 1px solid rgba(239,83,80,0.5); }
+.regime-sideways { background: rgba(69,90,100,0.2);  color: #90a4ae; border: 1px solid rgba(69,90,100,0.5); }
+.regime-panic    { background: rgba(183,28,28,0.3);  color: #ef5350; border: 1px solid rgba(183,28,28,0.6);
+                   animation: pulse 1.2s ease-in-out infinite; }
+
+/* 生命週期徽章 */
+.lifecycle-badge {
+    font-size: 0.64em; font-weight: 700;
+    border-radius: 20px; padding: 2px 7px;
+    white-space: nowrap;
+}
+.lifecycle-emerging  { background: rgba(102,187,106,0.2); color: #a5d6a7; border: 1px solid rgba(76,175,80,0.4); }
+.lifecycle-expansion { background: rgba(30,136,229,0.2);  color: #90caf9; border: 1px solid rgba(30,136,229,0.4); }
+.lifecycle-climax    { background: rgba(255,143,0,0.2);   color: #ffcc80; border: 1px solid rgba(255,143,0,0.4); }
+.lifecycle-fading    { background: rgba(117,117,117,0.2); color: #bdbdbd; border: 1px solid rgba(117,117,117,0.4); }
+
+/* 確認度徽章 */
+.conf-badge {
+    font-size: 0.64em; font-weight: 700;
+    border-radius: 20px; padding: 2px 7px;
+    white-space: nowrap;
+}
+.conf-strong  { background: rgba(76,175,80,0.25);  color: #a5d6a7; border: 1px solid rgba(76,175,80,0.4); }
+.conf-partial { background: rgba(255,143,0,0.2);   color: #ffcc80; border: 1px solid rgba(255,143,0,0.4); }
+.conf-none    { background: rgba(69,90,100,0.2);   color: #90a4ae; border: 1px solid rgba(69,90,100,0.4); }
+.conf-diverge { background: rgba(239,83,80,0.2);   color: #ef9a9a; border: 1px solid rgba(239,83,80,0.4); }
+
+/* 確認度進度條 */
+.conf-bar-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: help;
+}
+.conf-bar-track {
+    width: 55px; height: 5px;
+    background: #1e2d42;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.conf-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+}
+.conf-bar-label {
+    font-size: 0.65em;
+    color: #546e7a;
+    white-space: nowrap;
+    min-width: 24px;
+}
+
+/* 背離警告 */
+.divergence-alert {
+    font-size: 0.68em; font-weight: 700;
+    border-radius: 6px; padding: 3px 9px;
+    margin-top: 4px; margin-bottom: 2px;
+    display: inline-flex; align-items: center; gap: 5px;
+}
+.div-social-ahead  { background: rgba(30,136,229,0.18); color: #90caf9; border: 1px solid rgba(30,136,229,0.4); }
+.div-distribution  { background: rgba(255,87,34,0.18);  color: #ff8a65; border: 1px solid rgba(255,87,34,0.45); }
+.div-smart-money   { background: rgba(183,28,28,0.18);  color: #ef9a9a; border: 1px solid rgba(183,28,28,0.45); }
+.anom-score        { font-size: 0.85em; color: inherit; opacity: 0.75; }
+
+/* 題材輪動摘要卡片 */
+.sector-rotation-block {
+    margin-top: 10px;
+    border-top: 1px dashed #1e2d42;
+    padding-top: 8px;
+}
+.sector-rotation-summary {
+    font-size: 0.80em; font-weight: 700;
+    color: #ce93d8; cursor: pointer; user-select: none;
+    display: flex; align-items: center; gap: 8px;
+    list-style: none; outline: none;
+}
+.sector-rotation-summary::-webkit-details-marker { display: none; }
+.sector-rotation-summary:hover { color: #e1bee7; }
+.sector-rotation-body {
+    margin-top: 8px;
+    display: flex; flex-direction: column; gap: 5px;
+}
+.rot-row {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 5px;
+}
+.rot-label {
+    font-size: 0.70em; font-weight: 700;
+    color: #546e7a; min-width: 36px;
+}
+.rot-chip {
+    font-size: 0.68em; font-weight: 700;
+    border-radius: 12px; padding: 2px 8px;
+    white-space: nowrap;
+}
+.rot-emerging { background: rgba(102,187,106,0.18); color: #a5d6a7; border: 1px solid rgba(76,175,80,0.35); }
+.rot-fading   { background: rgba(117,117,117,0.18); color: #bdbdbd; border: 1px solid rgba(117,117,117,0.35); }
+.rot-arrow {
+    font-size: 0.72em; font-weight: 700;
+    color: #ce93d8; letter-spacing: 0.05em;
+}
+
     </style>
     </head><body>
     <div class="container">
-        <h1>🔥 [TW] 台股分析報告 - 20260521_220005</h1>
+        <h1>🔥 [TW] 台股分析報告 - 20260705_145234</h1>
+        <div style='display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px;padding:12px 16px;
+                    background:linear-gradient(135deg,#1a237e,#283593);border-radius:10px;
+                    border-left:5px solid #5c6bc0;box-shadow:0 3px 12px rgba(0,0,0,0.3);'>
+            <span style='font-size:1.05em;font-weight:900;color:#c5cae9;letter-spacing:0.5px;'>🎯 精準篩選模式</span>
+            <span style='background:#263238;color:#80cbc4;font-size:0.88em;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid #4db6ac;'>
+                ⬛ 當前收黑K（Close &lt; Open）
+            </span>
+            <span style='background:#263238;color:#ffe082;font-size:0.88em;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid #ffd54f;'>
+                🚀 曾創近期新高（有突破日期）
+            </span>
+            <span style='background:#263238;color:#ef9a9a;font-size:0.88em;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid #ef5350;'>
+                📋 一般股最多 20 檔（強制股另計）
+            </span>
+            <span style="background:#1a237e;color:#82b1ff;font-size:0.88em;font-weight:700;padding:4px 12px;border-radius:20px;border:1px solid #5c6bc0;">🏷️ 題材過濾：ABF載板、被動元件、石英元件</span>
+            <span style='margin-left:auto;font-size:0.82em;color:#7986cb;'>⭐ FORCE_INCLUDE 股票豁免黑K限制</span>
+        </div>
         <div class='filter-section' style='background: linear-gradient(135deg, #263238 0%, #37474f 100%); 
                     padding: 25px; 
                     border-radius: 12px; 
@@ -1281,11 +1703,37 @@ table td a:hover {
                     <span class='collapse-hint'>(點擊展開)</span>
                 </span>
             </div>
-            <div class='social-heat-block theme-empty' style='padding:10px 14px;color:#78909c;font-size:0.9em;border:1px dashed #37474f;border-radius:6px;display:inline-block;'>📡 今日 Threads 搜尋無台股相關貼文</div>
+            <div style="font-size:11px;color:#888;margin-bottom:4px;padding:2px 6px;">📡 社群資料來源：<b>🕷️ Selenium 爬蟲</b>（實際：cached|2026-06-30 22:39）</div><div class='social-heat-block'>
+<div class='social-heat-header'><span class='social-heat-title'>📡 社群熱度題材雷達</span><span class='social-heat-hint'>題材名稱→Threads 原文　股票代號→Yahoo 技術分析</span></div>
+<div style='background:#1a237e;border-left:3px solid #7986cb;padding:5px 12px;font-size:0.82em;color:#9fa8da;border-radius:4px;margin-bottom:6px;'>📋 今日爬蟲未取得新資料，顯示上次快取（2026-06-30 22:39）</div><div style='background:#1c2128;border:1px dashed #3d4c5e;border-radius:8px;padding:8px 14px;margin:6px 0;font-size:0.82em;color:#607080;'>🤖 Meta AI Phase 0：本次未取得資料（網頁未回應或快取尚未建立）</div>
+<div class='mkt-sentiment sentiment-neutral' title='市場情緒指數：+0.14'>市場情緒 ⚖️ +0.14 <span class='data-source'><span class="source-badge src-cached" style="background:#283593;color:#9fa8da;">📋 快取</span></span><span class='run-time'>耗時 14.4s</span></div>
+<div class='social-heat-tags'>
+<div class='theme-tag heat-high sentiment-neutral'>
+  <div class='theme-tag-header'>
+    <span class='theme-name'>DRAM</span>
+    <span class='heat-badge heat-high'>🔥 高熱度</span>
+    <span class='sentiment-badge'>⚖️</span>
+    
+    
+  </div>
+  <div class='theme-tag-meta'>    <span class='post-count'>🧵 2篇討論</span>      </div>
+  
+  <div class='theme-stocks'><a href="https://tw.stock.yahoo.com/quote/1303/technical-analysis" target="_blank" rel="noopener noreferrer" class="theme-stock-link" title="">南亞 1303</a><a href="https://tw.stock.yahoo.com/quote/2327/technical-analysis" target="_blank" rel="noopener noreferrer" class="theme-stock-link" title="">3.國巨 2327</a><a href="https://tw.stock.yahoo.com/quote/2330/technical-analysis" target="_blank" rel="noopener noreferrer" class="theme-stock-link" title="">台積電 2330</a><a href="https://tw.stock.yahoo.com/quote/2344/technical-analysis" target="_blank" rel="noopener noreferrer" class="theme-stock-link" title="">華邦電 2344</a><a href="https://tw.stock.yahoo.com/quote/2408/technical-analysis" target="_blank" rel="noopener noreferrer" class="theme-stock-link" title="">南亞科 2408</a><span class='stock-more'>+3...</span></div>
+  </div>
+</div>
+<details class='ki-block'>
+<summary class='ki-summary'>📖 Knowledge Insights</summary>
+<div class='ki-body'>
+<div class='ki-row'><span class='ki-label'>🏭 熱門產業</span><span class='ki-chips'><span class='ki-industry-chip'>建材<span class='ki-count'>7</span></span><span class='ki-industry-chip'>貿易<span class='ki-count'>4</span></span><span class='ki-industry-chip'>其他<span class='ki-count'>2</span></span><span class='ki-industry-chip'>塑膠<span class='ki-count'>1</span></span></span></div>
+<div class='ki-row'><span class='ki-label'>📚 知識庫</span><span class='ki-meta'>別名索引 <b>1,861</b> 個　已知股票 <b>1,831</b> 檔　本次辨識 <b>11</b> 檔</span></div>
+</div>
+</details>
+</div>
+
             <div class='collapsible-content collapsed' style='margin-left: 10px;'>
                 1️⃣ 10天平均成交量 > <span style='color: #64ffda; font-weight: 800; font-size: 1.08em; text-shadow: 0 0 8px rgba(100, 255, 218, 0.5);'>3000張</span><br>
-                2️⃣ 股價範圍：<span style='color: #64ffda; font-weight: 800; font-size: 1.08em; text-shadow: 0 0 8px rgba(100, 255, 218, 0.5);'>20.0~200.0元</span><br>
-                3️⃣ 已排除產業：<span style='color: #ff8a80; font-weight: 700; font-size: 1.05em;'>['建材', '觀光', '金融', '百貨', '鋼鐵', '水泥', '航運', '食品', '化學', '生技', '造紙', '橡膠', '塑膠', '汽車', '玻璃陶瓷']</span><br>
+                2️⃣ 股價範圍：<span style='color: #64ffda; font-weight: 800; font-size: 1.08em; text-shadow: 0 0 8px rgba(100, 255, 218, 0.5);'>20.0~1000.0元</span><br>
+                3️⃣ 已排除產業：<span style='color: #ff8a80; font-weight: 700; font-size: 1.05em;'>['建材', '觀光', '金融', '百貨', '鋼鐵', '水泥', '航運', '食品', '化學', '生技', '造紙', '橡膠', '汽車', '食品']</span><br>
                 4️⃣ 趨勢要求：<span style='color: #64ffda; font-weight: 800; font-size: 1.08em; text-shadow: 0 0 8px rgba(100, 255, 218, 0.5);'>多頭趨勢（前 2 天收盤價 > MA20 > MA60，今日收盤價 ≥ MA20×0.95）</span><br>
                 
                 <div style='margin-top: 12px; padding: 12px; background: rgba(0, 188, 212, 0.1); border-left: 4px solid #00bcd4; border-radius: 4px;'>
@@ -1304,7 +1752,7 @@ table td a:hover {
                 
                 <div style='margin-top: 15px; padding-top: 15px; border-top: 2px solid #455a64;'>
                     <span style='font-weight: 900; color: #ffd54f; font-size: 1.15em; text-shadow: 0 0 10px rgba(255, 213, 79, 0.6);'>6️⃣ 評分機制：</span>
-                    <span style='color: #90caf9; font-weight: 700; font-size: 1.05em;'>基礎分20分</span>，透過以下訊號加分<br>
+                    <span style='color: #90caf9; font-weight: 700; font-size: 1.05em;'>基礎分10分</span>，透過以下訊號加分<br>
                     <div style='margin-left: 18px; font-size: 0.98em; margin-top: 10px;'>
                         <div class='scoring-grid' style='display: grid; grid-template-columns: auto 1fr; gap: 10px 15px; align-items: start; background: rgba(255,255,255,0.03); padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);'>
                             
@@ -1400,7 +1848,7 @@ table td a:hover {
                         <span style='color: #757575; font-weight: 900; font-size: 1.08em; text-shadow: 0 0 8px rgba(117, 117, 117, 0.4);'>📋 篩選邏輯(共用)</span><br>
                         <span style='color: #9e9e9e; margin-left: 18px; display: block; margin-top: 8px; line-height: 1.6;'>
                             <strong>1️⃣ 強制門檻(必須全部通過)：</strong><br>
-                            &nbsp; ✓ 股價範圍：20.0~200.0元<br>
+                            &nbsp; ✓ 股價範圍：20.0~1000.0元<br>
                             &nbsp; ✓ 10天平均成交量 > 3000張<br>
                             &nbsp; ✓ 多頭排列：股價 > MA20 > MA60<br>
                             &nbsp; ✗ 任一不符合 → 放棄<br><br>
@@ -1450,13 +1898,13 @@ table td a:hover {
             </select>
         </div>
         <table id="v95Table" class="display" style="width:100%">
-            <thead><tr><th>代號</th><th>名稱</th><th>產業</th><th>股價</th><th title='含盤後零股，可能略高於Yahoo顯示值'>今日量(張)&#9432;</th><th>均量(張)</th><th>訊號</th><th style='display:none;'>追蹤天數</th><th>技術分析</th><th>布林軌道</th><th>Beta值</th><th>RSI</th><th>總分</th><th>策略類型</th><th>建議</th><th>本益比(PE)</th><th>預估本益比<br/><span class='sub'>B : 本益比 / A : 本夢比</span></th><th>備註</th></tr></thead>
+            <thead><tr><th>代號</th><th>名稱</th><th>產業</th><th>股價</th><th title='含盤後零股，可能略高於Yahoo顯示值'>今日量(張)&#9432;</th><th>均量(張)</th><th>訊號</th><th style='display:none;'>追蹤天數</th><th>技術分析</th><th>布林軌道</th><th>Beta值</th><th>RSI</th><th>總分</th><th>策略類型</th><th>建議</th><th>本益比(PE)</th><th>B : 本益比 / A : 本夢比</th><th title='三條件策略分數：ThemeScore/TrendScore/PullbackScore'>三條件</th><th>備註</th></tr></thead>
             <tbody>
-    <tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3003' target='_blank' class='stock-link-main'>3003</a><a href='https://tw.stock.yahoo.com/quote/3003/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>健和興</span><a href='https://www.wantgoo.com/stock/3003/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(4天)</span></td><td data-label='產業'>電子零組件業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>60.5</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>969</td><td data-label='均量' style='font-size:0.92em;color:#888;'>1449</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>4</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>爆量上漲 → 回檔整理 → 止跌反彈<br>高點 62.00<br>現價 60.50<br><span style='color:#9e9e9e;'>整理中</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:61.63</div><div class='boll middle'>中:56.88</div><div class='boll lower'>下:52.13 <span class='pct'>(16.7%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.69)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>67.7</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>88</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：強（0.89）<br>可信度：高（75%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.84×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.80×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>站穩均線 +1.00×0.12=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>外資連買 +0.60×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>量能 +0.45×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.26×0.15=+0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-strong-buy'>🔥 強力買進</span></td><td data-label='PE'><span class='pe-high'>nan</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>60.5</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-high'>57.9</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.67%</span></span><br>2. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.69)</span><br>3. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-14)</span><br>4. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📈 強勢上升趨勢 ｜評分 7.5/10<br><span class='bb-details'><span class='bb-item bb-ok'>✓ 收盤在中軌上方</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span><span class='bb-item bb-ok'>✓ 近 3 天沿上軌走強</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3014' target='_blank' class='stock-link-main'>3014</a><a href='https://tw.stock.yahoo.com/quote/3014/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>聯陽</span><a href='https://www.wantgoo.com/stock/3014/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(5天)</span></td><td data-label='產業'>電子工業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>145.0</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>6370</td><td data-label='均量' style='font-size:0.92em;color:#888;'>3979</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>5</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理 → 止跌反彈<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 147.00</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:145.6</div><div class='boll middle'>中:132.32</div><div class='boll lower'>下:119.05 <span class='pct'>(20.1%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.56)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>77.6</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>83</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中偏強（0.73）<br>可信度：高（75%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.80×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.80×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>量能 +1.00×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>站穩均線 +1.00×0.12=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>RSI -0.50×0.20=-0.1</div><div style='font-size:0.78em;color:#4caf50;'>外資連買 +0.40×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.26×0.15=+0.0</div></div></div><br/><span style='font-size:0.8em;color:#4caf50;font-weight:700;'>強(+3)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-mid'>15.7</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-mid'>15.2</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-mid'>15.1</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: 🟡 開始活絡 4.00%</span></span><br>2. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.56)</span><br>3. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-12)</span><br>4. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📈 中軌上方整理 ｜評分 7.5/10<br><span class='bb-details'><span class='bb-item bb-ok'>✓ 收盤在中軌上方</span><span class='bb-item bb-ok'>✓ 中軌方向向上</span><span class='bb-item bb-ok'>✓ 布林帶開口擴大（趨勢加速）</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/5483' target='_blank' class='stock-link-main'>5483</a><a href='https://tw.stock.yahoo.com/quote/5483/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>中美晶</span><a href='https://www.wantgoo.com/stock/5483/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(5天)</span></td><td data-label='產業'>半導體業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>142.5</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>11720</td><td data-label='均量' style='font-size:0.92em;color:#888;'>17080</td><td data-label='訊號' class=''>📉 近MA20<br/><span style='color:#f44336;font-weight:bold;'>上引線 紅K (2.5%)</span></td><td data-label='追蹤天數'>5</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>爆量上漲 → 回檔整理 → 止跌反彈<br>最新 <span style='font-weight:700;font-size:1.05em;color:#d84315;'>142.50</span><br>低於高點 <span style='font-weight:700;font-size:1.05em;color:#6e57d9;'>153.00</span><br><span style='color:#616161;'>未突破</span> <span style='color:#1976d2;font-weight:bold;'>止跌反彈</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:160.95</div><div class='boll middle'>中:141.93</div><div class='boll lower'>下:122.9 <span class='pct'>(26.8%)</span></div></div></td><td data-label='Beta'>高波動<br>(1.36)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>55.3</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>82</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中偏強（0.68）<br>可信度：高（71%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.80×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +1.00×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.75×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.67×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.64×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div></div></div><br/><span style='font-size:0.8em;color:#ffc107;font-weight:700;'>中(+0)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>nan</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-mid'>19.4</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-low'>12.6</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.72%</span></span><br>2. <span class='reason-item reason-pattern reason-normal'>📊 打底: ✅ 止跌信號確認，股價回升中</span><br>3. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 高波動 (1.36)</span><br>4. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-12)</span><br>5. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📈 回踩中軌反彈 ｜評分 7.0/10<br><span class='bb-details'><span class='bb-item bb-ok'>✓ 低點觸及中軌</span><span class='bb-item bb-ok'>✓ 收盤重新站回中軌上方</span><span class='bb-item bb-ok'>✓ 中軌方向向上</span><span class='bb-item bb-ok'>✓ 收紅K棒反彈</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span><span class='bb-item bb-bad'>✗ 布林帶收縮（趨勢轉盤整）</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/2385' target='_blank' class='stock-link-main'>2385</a><a href='https://tw.stock.yahoo.com/quote/2385/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>群光</span><a href='https://www.wantgoo.com/stock/2385/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(7天)</span></td><td data-label='產業'>電子零組件業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>130.0</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>4464</td><td data-label='均量' style='font-size:0.92em;color:#888;'>4145</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>7</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理 → 止跌反彈<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 132.00</span> <span style='color:#1976d2;font-weight:bold;'>止跌反彈</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:135.6</div><div class='boll middle'>中:127.67</div><div class='boll lower'>下:119.75 <span class='pct'>(12.4%)</span></div></div></td><td data-label='Beta'>低波動<br>(0.31)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>58.7</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>86</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：強（0.82）<br>可信度：高（75%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.78×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.75×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.53×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>量能 +0.52×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.27×0.15=+0.0</div><div style='font-size:0.78em;color:#4caf50;'>外資連買 +0.20×0.20=+0.0</div></div></div><br/><span style='font-size:0.8em;color:#4caf50;font-weight:700;'>強(+5)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-strong-buy'>🔥 強力買進</span></td><td data-label='PE'><span class='pe-low'>14.7</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-low'>14.7</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-mid'>16.1</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 2.69%</span></span><br>2. <span class='reason-item reason-pattern reason-normal'>📊 打底: ✅ 止跌信號確認，股價回升中</span><br>3. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 低波動 (0.31)</span><br>4. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-11)</span><br>5. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📈 回踩中軌反彈 ｜評分 8.0/10<br><span class='bb-details'><span class='bb-item bb-ok'>✓ 低點觸及中軌</span><span class='bb-item bb-ok'>✓ 收盤重新站回中軌上方</span><span class='bb-item bb-ok'>✓ 中軌方向向上</span><span class='bb-item bb-ok'>✓ 收紅K棒反彈</span><span class='bb-item bb-ok'>✓ 布林帶開口擴大（趨勢加速）</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/5388' target='_blank' class='stock-link-main'>5388</a><a href='https://tw.stock.yahoo.com/quote/5388/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>中磊</span><a href='https://www.wantgoo.com/stock/5388/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(7天)</span></td><td data-label='產業'>電子工業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>83.0</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>4443</td><td data-label='均量' style='font-size:0.92em;color:#888;'>9126</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>7</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>黑平紅紅紅<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 83.50</span> <span style='color:#1976d2;font-weight:bold;'>三重底</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:86.92</div><div class='boll middle'>中:80.05</div><div class='boll lower'>下:73.19 <span class='pct'>(17.1%)</span></div></div></td><td data-label='Beta'>低波動<br>(0.36)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>61.1</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>86</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：強（0.81）<br>可信度：高（79%）</div><div style='font-size:0.78em;color:#4caf50;'>型態種類 +1.00×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.80×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.95×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>外資連買 +0.60×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.53×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.43×0.15=+0.1</div></div></div><br/><span style='font-size:0.8em;color:#ffc107;font-weight:700;'>中(+2)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-strong-buy'>🔥 強力買進</span></td><td data-label='PE'><span class='pe-high'>nan</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-mid'>20.6</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-mid'>20.8</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.22%</span></span><br>2. <span class='reason-item reason-pattern reason-normal'>📊 打底: 🔥 三重底確立，股價位置良好</span><br>3. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 低波動 (0.36)</span><br>4. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-12)</span><br>5. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: ⚪ 通道整理 ｜評分 5.0/10<br><span class='bb-details'><span class='bb-item bb-warn'>~ 股價在布林通道中段整理</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/2347' target='_blank' class='stock-link-main'>2347</a><a href='https://tw.stock.yahoo.com/quote/2347/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#00ab5e;font-weight:bold;'>聯強 (1)</span><a href='https://www.wantgoo.com/stock/2347/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(7天)</span></td><td data-label='產業'>電子通路業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>84.4</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>3865</td><td data-label='均量' style='font-size:0.92em;color:#888;'>4470</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>7</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>持續下跌<br>高點 86.00<br>現價 84.40<br><span style='color:#9e9e9e;'>整理中</span> <span style='color:#1976d2;font-weight:bold;'>雙底</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:85.75</div><div class='boll middle'>中:83.02</div><div class='boll lower'>下:80.28 <span class='pct'>(6.6%)</span></div></div></td><td data-label='Beta'>低波動<br>(0.36)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>55.4</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>78</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中等（0.59）<br>可信度：高（87%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.78×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態種類 +0.80×0.25=+0.2</div><div style='font-size:0.78em;color:#ef5350;'>融資增加 -1.00×0.20=-0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.85×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.53×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>量能 +0.42×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>外資連買 +0.20×0.20=+0.0</div></div></div><br/><span style='font-size:0.8em;color:#4caf50;font-weight:700;'>強(+3)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-low'>14.7</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-low'>14.7</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-low'>9.1</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 2.16%</span></span><br>2. <span class='reason-item reason-pattern reason-normal'>📊 打底: ✅ 雙底已成形，股價上穿 MA20/MA60</span><br>3. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 低波動 (0.36)</span><br>4. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-11)</span><br>5. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: ⚪ 通道整理 ｜評分 4.5/10<br><span class='bb-details'><span class='bb-item bb-warn'>~ 股價在布林通道中段整理</span><span class='bb-item bb-bad'>✗ 布林帶收縮（趨勢轉盤整）</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/8074' target='_blank' class='stock-link-main'>8074</a><a href='https://tw.stock.yahoo.com/quote/8074/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>鉅橡</span><a href='https://www.wantgoo.com/stock/8074/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(7天)</span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>電子零組件業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>74.5</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>1306</td><td data-label='均量' style='font-size:0.92em;color:#888;'>3482</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>7</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>持續下跌 → 止跌反彈<br>最新 <span style='font-weight:700;font-size:1.05em;color:#d84315;'>74.50</span><br>低於高點 <span style='font-weight:700;font-size:1.05em;color:#6e57d9;'>80.10</span><br><span style='color:#616161;'>未突破</span> <span style='color:#1976d2;font-weight:bold;'>止跌反彈</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status down'>🔵 跌破中軌</div><div class='boll upper'>上:89.95</div><div class='boll middle'>中:78.43</div><div class='boll lower'>下:66.9 <span class='pct'>(29.4%)</span></div></div></td><td data-label='Beta'>高波動<br>(1.32)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#90a4ae;'>43.5</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>77</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中等（0.56）<br>可信度：中（67%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.64×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.86×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.67×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.60×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.28×0.15=-0.0</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>nan</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>45.7</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-mid'>21.1</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: 🔴 極度冷清 0.94%</span></span><br>2. <span class='reason-item reason-pattern reason-normal'>📊 打底: ⚠️ 止跌型態出現，短期可能反彈</span><br>3. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 高波動 (1.32)</span><br>4. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-05)</span><br>5. <span class='reason-item reason-filter reason-warning'>🔍 布林結構: 📉 跌破中軌弱勢 ｜評分 3.0/10<br><span class='bb-details'><span class='bb-item bb-bad'>✗ 收盤跌破中軌</span><span class='bb-item bb-bad'>✗ 中軌向下彎</span><span class='bb-item bb-bad'>✗ 布林帶收縮（趨勢轉盤整）</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3709' target='_blank' class='stock-link-main'>3709</a><a href='https://tw.stock.yahoo.com/quote/3709/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>鑫聯大投控</span><a href='https://www.wantgoo.com/stock/3709/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(8天)</span></td><td data-label='產業'>電腦及週邊設備業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>87.0</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>3786</td><td data-label='均量' style='font-size:0.92em;color:#888;'>4763</td><td data-label='訊號' class=''>📉 近MA20</td><td data-label='追蹤天數'>8</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理 → 止跌反彈<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 87.80</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:89.96</div><div class='boll middle'>中:83.13</div><div class='boll lower'>下:76.3 <span class='pct'>(16.4%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.59)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>55.9</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>83</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中偏強（0.74）<br>可信度：中（67%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.71×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.80×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.48×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>外資連買 +0.20×0.20=+0.0</div></div></div><br/><span style='font-size:0.8em;color:#ffc107;font-weight:700;'>中(+2)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>nan</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-low'>8.7</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-low'>3.5</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.99%</span></span><br>2. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.59)</span><br>3. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-05-08)</span><br>4. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📈 回踩中軌反彈 ｜評分 7.0/10<br><span class='bb-details'><span class='bb-item bb-ok'>✓ 低點觸及中軌</span><span class='bb-item bb-ok'>✓ 收盤重新站回中軌上方</span><span class='bb-item bb-ok'>✓ 中軌方向向上</span><span class='bb-item bb-ok'>✓ 收紅K棒反彈</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span><span class='bb-item bb-bad'>✗ 布林帶收縮（趨勢轉盤整）</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/8150' target='_blank' class='stock-link-main'>8150</a><a href='https://tw.stock.yahoo.com/quote/8150/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#00ab5e;font-weight:bold;'>南茂 (3)</span><a href='https://www.wantgoo.com/stock/8150/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='color:#ff9800;font-weight:bold;'>追蹤中(7天)</span></td><td data-label='產業'>半導體業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>75.9</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>13770</td><td data-label='均量' style='font-size:0.92em;color:#888;'>33320</td><td data-label='訊號' class=''>📉 近MA20<br/><span style='color:#4caf50;font-weight:bold;'>上引線 黑K (2.8%)</span></td><td data-label='追蹤天數'>7</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>回檔整理<br>最新 <span style='font-weight:700;font-size:1.05em;color:#d84315;'>75.90</span><br>低於高點 <span style='font-weight:700;font-size:1.05em;color:#6e57d9;'>84.40</span><br><span style='color:#616161;'>未突破</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status down'>🔵 跌破中軌</div><div class='boll upper'>上:98.06</div><div class='boll middle'>中:79.69</div><div class='boll lower'>下:61.31 <span class='pct'>(46.1%)</span></div></div></td><td data-label='Beta'>極高波動<br>(1.61)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>55.4</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>78</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中等（0.57）<br>可信度：高（71%）</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.36×0.30=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.65×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>觸及均線 +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.33×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>黑K風險 -0.30×0.15=-0.0</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.21×0.15=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>nan</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>64.3</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-high'>25.7</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.03%</span></span><br>2. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 極高波動 (1.61)</span><br>3. <span class='reason-item reason-strategy reason-emphasis'>策略3: 🎯 突破新高 (2026-04-22)</span><br>4. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📊 回調中（中軌仍升） ｜評分 6.0/10<br><span class='bb-details'><span class='bb-item bb-warn'>~ 收盤跌破中軌</span><span class='bb-item bb-ok'>✓ 中軌仍向上（大趨勢未壞）</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/2409' target='_blank' class='stock-link-main'>2409</a><a href='https://tw.stock.yahoo.com/quote/2409/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>友達</span><a href='https://www.wantgoo.com/stock/2409/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>電子工業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>20.2</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>366957</td><td data-label='均量' style='font-size:0.92em;color:#888;'>329027</td><td data-label='訊號' class=''>📊 追蹤中</td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理 → 止跌反彈<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 20.45</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:20.73</div><div class='boll middle'>中:18.44</div><div class='boll lower'>下:16.14 <span class='pct'>(24.9%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.82)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>67.0</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>75</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中等（0.50）<br>可信度：中（59%）</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.80×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>站穩均線 +1.00×0.12=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.40×0.15=-0.1</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-2)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>63.1</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>63.1</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-high'>126.2</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 2.79%</span></span><br>2. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.82)</span><br>3. <span class='reason-item reason-strategy reason-emphasis'>策略3: 📈 V型反彈（跌幅24.0%→回升21.7%）</span><br>4. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: ⚪ 通道整理 ｜評分 4.5/10<br><span class='bb-details'><span class='bb-item bb-warn'>~ 股價在布林通道中段整理</span><span class='bb-item bb-bad'>✗ 布林帶收縮（趨勢轉盤整）</span></span></span></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/1605' target='_blank' class='stock-link-main'>1605</a><a href='https://tw.stock.yahoo.com/quote/1605/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' style='font-weight:700;'><span style='color:#ff333a;font-weight:bold;'>華新</span><a href='https://www.wantgoo.com/stock/1605/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>電器電纜</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>35.5</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>61891</td><td data-label='均量' style='font-size:0.92em;color:#888;'>55133</td><td data-label='訊號' class=''>📊 追蹤中<br/><span style='color:#f44336;font-weight:bold;'>上引線 紅K (2.4%)</span></td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理 → 止跌反彈<br>高點 36.35<br>現價 35.50<br><span style='color:#9e9e9e;'>整理中</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:37.25</div><div class='boll middle'>中:33.0</div><div class='boll lower'>下:28.76 <span class='pct'>(25.7%)</span></div></div></td><td data-label='Beta'>高波動<br>(1.22)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>67.2</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>74</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中等（0.47）<br>可信度：中（59%）</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>Beta +0.67×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>站穩均線 +1.00×0.12=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.40×0.15=-0.1</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-2)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>突破回調</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>25.9</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>25.5</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-low'>10.2</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary>1. <span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 2.81%</span></span><br>2. <span class='reason-item reason-beta reason-normal'>⚡ Beta: 高波動 (1.22)</span><br>3. <span class='reason-item reason-strategy reason-emphasis'>策略3: 📈 V型反彈（跌幅15.1%→回升20.1%）</span><br>4. <span class='reason-item reason-filter reason-normal'>🔍 布林結構: 📈 中軌上方整理 ｜評分 7.5/10<br><span class='bb-details'><span class='bb-item bb-ok'>✓ 收盤在中軌上方</span><span class='bb-item bb-ok'>✓ 中軌方向向上</span><span class='bb-item bb-ok'>✓ 布林帶開口擴大（趨勢加速）</span><span class='bb-item bb-ok'>✓ 中軌持續上升</span></span></span></details></td></tr></tbody></table></div>
+    <tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/1605' target='_blank' class='stock-link-main'>1605</a><a href='https://tw.stock.yahoo.com/quote/1605/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' data-sort='華新' style='font-weight:700;'><span style='white-space:nowrap;'><span style='color:#ff333a;font-weight:bold;'>華新</span><a href='https://www.wantgoo.com/stock/1605/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖' style='margin-left:3px;'>📊</a></span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>電器電纜</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>36.25</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>19367</td><td data-label='均量' style='font-size:0.92em;color:#888;'>36648</td><td data-label='訊號' class=''>📊 追蹤中</td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理 → 止跌反彈<br>最新 <span style='font-weight:700;font-size:1.05em;color:#d84315;'>36.25</span><br>低於高點 <span style='font-weight:700;font-size:1.05em;color:#6e57d9;'>37.85</span><br><span style='color:#616161;'>未突破</span> <span style='color:#1976d2;font-weight:bold;'>止跌反彈</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status down'>🔵 跌破中軌</div><div class='boll upper'>上:40.97</div><div class='boll middle'>中:37.17</div><div class='boll lower'>下:33.36 <span class='pct'>(20.5%)</span></div></div></td><td data-label='Beta'>高波動<br>(1.41)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#90a4ae;'>45.4</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>58</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：普通（0.15）<br>可信度：中（56%）</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.60×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>rs_signal -0.34×0.25=-0.1</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.40×0.15=-0.1</div><div style='font-size:0.78em;color:#ef5350;'>Beta +0.67×0.00=+0.0</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>📊 追蹤</span></td><td data-label='建議'><span class='sug-badge sug-watch'>👀 納入觀察</span></td><td data-label='PE'><span class='pe-low'>10.9</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>26.1</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-low'>10.4</span></div></td><td data-label='三條件' style='text-align:center;white-space:nowrap;'><div style='font-size:0.78em;line-height:1.7;white-space:nowrap;'><span style='color:#666;font-weight:900;'>○</span><span title='ThemeScore（熱門題材，門檻10）' style='color:#ff9800;font-weight:600;'>T:8</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='TrendScore（MA5多頭趨勢，需滿足4項）' style='color:#64b5f6;font-weight:600;'>趨:17</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='PullbackScore（none回調，需滿足4項+首次觸及）' style='color:#81c784;font-weight:600;'>回:43</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary><div style='display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;'><span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.32%</span></span><span class='reason-item reason-pattern reason-normal'>📊 打底: ⚠️ 止跌型態出現，短期可能反彈</span><span class='reason-item reason-beta reason-normal'>⚡ Beta: 高波動 (1.41)</span><span class='reason-item reason-strategy reason-emphasis'>📈 V型反彈（跌幅23.4%→回升9.2%）</span></div></details></td></tr><tr class='row-data-poor'><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/1711' target='_blank' class='stock-link-main'>1711</a><a href='https://tw.stock.yahoo.com/quote/1711/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' data-sort='永光' style='font-weight:700;'><span style='white-space:nowrap;'><span style='color:#ff333a;font-weight:bold;'>永光</span><a href='https://www.wantgoo.com/stock/1711/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖' style='margin-left:3px;'>📊</a></span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>其他電子</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>45.70</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>8043</td><td data-label='均量' style='font-size:0.92em;color:#888;'>8854</td><td data-label='訊號' class=''>📊 追蹤中<br/><span style='color:#f44336;font-weight:bold;'>上引線 紅K (2.5%)</span></td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 46.80</span> <span style='color:#1976d2;font-weight:bold;'>V型反轉</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:48.79</div><div class='boll middle'>中:44.91</div><div class='boll lower'>下:41.04 <span class='pct'>(17.3%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.89)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>55.3</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>76</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中等（0.52）<br>可信度：中（63%）</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態種類 +0.72×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.85×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.40×0.15=-0.1</div><div style='font-size:0.78em;color:#ef5350;'>Beta +0.80×0.00=+0.0</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>📊 追蹤</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-high'>55.0</span></td><td data-label='預估PE' data-search=''><span class='fpe-reason'>格式錯誤</span></td><td data-label='三條件' style='text-align:center;white-space:nowrap;'><div style='font-size:0.78em;line-height:1.7;white-space:nowrap;'><span style='color:#4caf50;font-weight:900;'>●</span><span title='ThemeScore（熱門題材，門檻10）' style='color:#ff9800;font-weight:600;'>T:14</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='TrendScore（MA5多頭趨勢，需滿足4項）' style='color:#64b5f6;font-weight:600;'>趨:50</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='PullbackScore（none回調，需滿足4項+首次觸及）' style='color:#81c784;font-weight:600;'>回:43</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary><div style='display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;'><span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 2.27%</span></span><span class='reason-item reason-pattern reason-normal'>📊 打底: ✅ V型反轉成型，股價上升中</span><span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.89)</span><span class='reason-item reason-strategy reason-emphasis'>📈 V型反彈（跌幅24.4%→回升13.4%）</span><span class='reason-item reason-filter reason-normal'>🔔 當日回踩中軌（44.91），收盤站回中軌</span></div></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3021' target='_blank' class='stock-link-main'>3021</a><a href='https://tw.stock.yahoo.com/quote/3021/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' data-sort='鴻名' style='font-weight:700;'><span style='white-space:nowrap;'><span style='color:#00ab5e;font-weight:bold;'>鴻名</span><a href='https://www.wantgoo.com/stock/3021/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖' style='margin-left:3px;'>📊</a></span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>電子零組件業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>29.25</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>474</td><td data-label='均量' style='font-size:0.92em;color:#888;'>922</td><td data-label='訊號' class=''>📊 追蹤中</td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理<br>最新 <span style='font-weight:700;font-size:1.05em;color:#d84315;'>29.25</span><br>低於高點 <span style='font-weight:700;font-size:1.05em;color:#6e57d9;'>33.05</span><br><span style='color:#616161;'>未突破</span> <span style='color:#1976d2;font-weight:bold;'>雙底</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status down'>🔵 跌破中軌</div><div class='boll upper'>上:32.75</div><div class='boll middle'>中:29.49</div><div class='boll lower'>下:26.22 <span class='pct'>(22.2%)</span></div></div></td><td data-label='Beta'>同步<br>(1.06)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#90a4ae;'>47.2</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>82</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：中偏強（0.70）<br>可信度：中（59%）</div><div style='font-size:0.78em;color:#4caf50;'>rs_signal +1.00×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態種類 +0.80×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.65×0.20=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>量能 -0.40×0.15=-0.1</div><div style='font-size:0.78em;color:#ef5350;'>Beta +1.00×0.00=+0.0</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ef5350;font-weight:700;'>弱(-1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>📊 追蹤</span></td><td data-label='建議'><span class='sug-badge sug-watch'>✅ 積極操作</span></td><td data-label='PE'><span class='pe-low'>11.8</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>51.3</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-mid'>20.5</span></div></td><td data-label='三條件' style='text-align:center;white-space:nowrap;'><div style='font-size:0.78em;line-height:1.7;white-space:nowrap;'><span style='color:#666;font-weight:900;'>○</span><span title='ThemeScore（熱門題材，門檻10）' style='color:#ff9800;font-weight:600;'>T:8</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='TrendScore（MA5多頭趨勢，需滿足4項）' style='color:#64b5f6;font-weight:600;'>趨:50</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='PullbackScore（none回調，需滿足4項+首次觸及）' style='color:#81c784;font-weight:600;'>回:43</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary><div style='display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;'><span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.28%</span></span><span class='reason-item reason-pattern reason-normal'>📊 打底: ⚠️ 雙底形成中，股價接近 MA20</span><span class='reason-item reason-beta reason-normal'>⚡ Beta: 同步 (1.06)</span><span class='reason-item reason-strategy reason-emphasis'>未找到突破新高</span><span class='reason-item reason-filter reason-normal'>🔔 當日回踩中軌（29.49），收盤仍在中軌下方</span></div></details></td></tr><tr class='row-data-poor'><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3149' target='_blank' class='stock-link-main'>3149</a><a href='https://tw.stock.yahoo.com/quote/3149/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' data-sort='正達' style='font-weight:700;'><span style='white-space:nowrap;'><span style='color:#00ab5e;font-weight:bold;'>正達 (1)</span><a href='https://www.wantgoo.com/stock/3149/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖' style='margin-left:3px;'>📊</a></span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>光電業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>87.20</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>16957</td><td data-label='均量' style='font-size:0.92em;color:#888;'>22906</td><td data-label='訊號' class=''>📊 追蹤中</td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲 → 回檔整理<br>最新 <span style='font-weight:700;font-size:1.05em;color:#d84315;'>87.20</span><br>低於高點 <span style='font-weight:700;font-size:1.05em;color:#6e57d9;'>105.00</span><br><span style='color:#616161;'>未突破</span> <span style='color:#1976d2;font-weight:bold;'>雙底</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status down'>🔵 跌破中軌</div><div class='boll upper'>上:105.62</div><div class='boll middle'>中:91.94</div><div class='boll lower'>下:78.27 <span class='pct'>(29.7%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.96)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>52.9</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>89</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：強（0.97）<br>可信度：高（73%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.89×0.30=+0.3</div><div style='font-size:0.78em;color:#4caf50;'>rs_signal +1.00×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態種類 +0.80×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.65×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.67×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>量能 +0.54×0.15=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>Beta +0.80×0.00=+0.0</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ffc107;font-weight:700;'>中(+2)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>📊 追蹤</span></td><td data-label='建議'><span class='sug-badge sug-strong-buy'>🔥 強力買進</span></td><td data-label='PE'><span class='pe-na'>-</span></td><td data-label='預估PE' data-search=''><span class='fpe-reason'>格式錯誤</span></td><td data-label='三條件' style='text-align:center;white-space:nowrap;'><div style='font-size:0.78em;line-height:1.7;white-space:nowrap;'><span style='color:#4caf50;font-weight:900;'>●</span><span title='ThemeScore（熱門題材，門檻10）' style='color:#ff9800;font-weight:600;'>T:11</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='TrendScore（MA5多頭趨勢，需滿足4項）' style='color:#64b5f6;font-weight:600;'>趨:17</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='PullbackScore（none回調，需滿足4項+首次觸及）' style='color:#81c784;font-weight:600;'>回:43</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary><div style='display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;'><span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 1.85%</span></span><span class='reason-item reason-pattern reason-normal'>📊 打底: ⚠️ 雙底形成中，股價接近 MA20</span><span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.96)</span></div></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3704' target='_blank' class='stock-link-main'>3704</a><a href='https://tw.stock.yahoo.com/quote/3704/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' data-sort='合勤控' style='font-weight:700;'><span style='white-space:nowrap;'><span style='color:#ff333a;font-weight:bold;'>合勤控</span><a href='https://www.wantgoo.com/stock/3704/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖' style='margin-left:3px;'>📊</a></span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>通信網路業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>46.95</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>4735</td><td data-label='均量' style='font-size:0.92em;color:#888;'>4836</td><td data-label='訊號' class=''>📊 追蹤中</td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>爆量上漲<br>高點 48.10<br>現價 46.95<br><span style='color:#9e9e9e;'>整理中</span> <span style='color:#1976d2;font-weight:bold;'>雙底</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status in'>⚪ 通道內</div><div class='boll upper'>上:50.48</div><div class='boll middle'>中:46.85</div><div class='boll lower'>下:43.22 <span class='pct'>(15.5%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.62)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>53.3</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>89</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：強（0.97）<br>可信度：中（66%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +0.82×0.30=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態種類 +0.80×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>型態強度 +0.85×0.20=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.50×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>量能 +0.45×0.15=+0.1</div><div style='font-size:0.78em;color:#ef5350;'>Beta +0.80×0.00=+0.0</div><div style='font-size:0.78em;color:#ef5350;'>缺少PE -0.20×0.00=-0.0</div></div></div><br/><span style='font-size:0.8em;color:#ffc107;font-weight:700;'>中(+0)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>📊 追蹤</span></td><td data-label='建議'><span class='sug-badge sug-strong-buy'>🔥 強力買進</span></td><td data-label='PE'><span class='pe-low'>9.8</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span><span class='pe-high'>40.8</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-high'>81.7</span></div></td><td data-label='三條件' style='text-align:center;white-space:nowrap;'><div style='font-size:0.78em;line-height:1.7;white-space:nowrap;'><span style='color:#4caf50;font-weight:900;'>●</span><span title='ThemeScore（熱門題材，門檻10）' style='color:#ff9800;font-weight:600;'>T:15</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='TrendScore（MA5多頭趨勢，需滿足4項）' style='color:#64b5f6;font-weight:600;'>趨:17</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='PullbackScore（none回調，需滿足4項+首次觸及）' style='color:#81c784;font-weight:600;'>回:29</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary><div style='display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;'><span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: ⚪ 正常交易 2.45%</span></span><span class='reason-item reason-pattern reason-normal'>📊 打底: ✅ 雙底已成形，股價上穿 MA20/MA60</span><span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.62)</span><span class='reason-item reason-filter reason-warning'>🔔 當日觸及下軌（43.22），收盤站回</span></div></details></td></tr><tr><td data-label='代號'><a href='https://www.cmoney.tw/forum/stock/3221' target='_blank' class='stock-link-main'>3221</a><a href='https://tw.stock.yahoo.com/quote/3221/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a></td><td data-label='名稱' data-sort='台嘉碩' style='font-weight:700;'><span style='white-space:nowrap;'><span style='color:#ff333a;font-weight:bold;'>台嘉碩</span><a href='https://www.wantgoo.com/stock/3221/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖' style='margin-left:3px;'>📊</a></span><br/><span style='display: inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:999px;background:linear-gradient(135deg,#6a1b9a,#8e24aa);color:#f3d9ff;font-size:12px;font-weight:700;letter-spacing:0.3px;box-shadow:0 1px 4px rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.12);'>⭐強制</span></td><td data-label='產業'>通信網路業</td><td data-label='股價' style='font-weight:700;font-size:1.05em;color:#d84315;'>66.30</td><td data-label='今日量' style='font-weight:700;font-size:1.05em;'>31223</td><td data-label='均量' style='font-size:0.92em;color:#888;'>15075</td><td data-label='訊號' class=''>🚀 主升突破<br/><span style='color:#f44336;font-weight:bold;'>上引線 紅K (5.1%)</span></td><td data-label='追蹤天數'>1</td><td data-label='技術分析' style='font-size:1em;font-weight:600;'><b><b>緩步上漲<br><span style='color:#ff6b00;font-weight:bold;'>突破新高 69.50</span></b></b></td><td data-label='布林'><div class='boll-box'><div class='status up'>🔴 突破上軌</div><div class='boll upper'>上:66.05</div><div class='boll middle'>中:59.86</div><div class='boll lower'>下:53.66 <span class='pct'>(20.7%)</span></div></div></td><td data-label='Beta'>中低波動<br>(0.76)</td><td data-label='RSI' style='font-weight:700;font-size:1.05em;color:#4caf50;'>60.6</td><td data-label='總分' class='score-high'><div style='display:inline-block;position:relative;cursor:pointer;' onmouseenter="var t=this.querySelector('.sig-tip');t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';" onmousemove="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';}" onmouseleave="this.querySelector('.sig-tip').style.display='none'" onclick="var t=this.querySelector('.sig-tip');if(t.style.display==='block'){t.style.display='none';}else{t.style.display='block';t.style.left=(event.clientX+14)+'px';t.style.top=(event.clientY+14)+'px';};event.stopPropagation();"><b>92</b><div class='sig-tip' style='display:none;position:fixed;z-index:9999;background:#1e2a3a;border:1px solid #37474f;border-radius:6px;padding:8px 10px;min-width:200px;text-align:left;box-shadow:0 4px 12px rgba(0,0,0,0.5);'><div class='score-meta' style='color:#90caf9;margin-bottom:6px;'>強度：強（1.10）<br>可信度：高（73%）</div><div style='font-size:0.78em;color:#4caf50;'>突破強度 +1.00×0.30=+0.3</div><div style='font-size:0.78em;color:#4caf50;'>換手率 +1.00×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>rs_signal +1.00×0.25=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>前期漲幅 +1.00×0.18=+0.2</div><div style='font-size:0.78em;color:#4caf50;'>industry_momentum +1.00×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>量能 +0.91×0.15=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>站穩均線 +1.00×0.12=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>RSI +0.50×0.20=+0.1</div><div style='font-size:0.78em;color:#4caf50;'>回調深度 +0.23×0.15=+0.0</div><div style='font-size:0.78em;color:#ef5350;'>Beta +0.80×0.00=+0.0</div></div></div><br/><span style='font-size:0.8em;color:#ffc107;font-weight:700;'>中(+1)</span></td><td data-label='策略' style='text-align:center;'><span style='background:linear-gradient(135deg,#66bb6a,#4caf50);color:#fff;font-weight:800;padding:8px 10px;border-radius:6px;box-shadow:0 3px 10px rgba(76,175,80,0.3);font-size:0.9em;display:inline-block;text-align:center;line-height:1.4;white-space:normal;min-width:80px;'>🚀 主升突破</span></td><td data-label='建議'><span class='sug-badge sug-strong-buy'>🔥 強力買進</span></td><td data-label='PE'><span class='pe-na'>-</span></td><td data-label='預估PE' data-search=''><div class='fpe-cell pe-box' title='Forward PE 為估算值（基於歷史 EPS 推算）'><span class='pe-base'>B:</span>&nbsp;/<span class='pe-agg'>A:</span><span class='pe-high'>98.7</span></div></td><td data-label='三條件' style='text-align:center;white-space:nowrap;'><div style='font-size:0.78em;line-height:1.7;white-space:nowrap;'><span style='color:#4caf50;font-weight:900;'>●</span><span title='ThemeScore（熱門題材，門檻10）' style='color:#ff9800;font-weight:600;'>T:32</span><br/><span style='color:#4caf50;font-weight:900;'>●</span><span title='TrendScore（MA5多頭趨勢，需滿足4項）' style='color:#64b5f6;font-weight:600;'>趨:83</span><br/><span style='color:#666;font-weight:900;'>○</span><span title='PullbackScore（none回調，需滿足4項+首次觸及）' style='color:#81c784;font-weight:600;'>回:57</span></div></td><td data-label='備註' class='remarks-cell'><details open class='mobile-detail'><summary>備註詳情</summary><div style='display:flex;flex-wrap:wrap;gap:2px;margin-top:2px;'><span class='reason-item reason-turnover reason-normal'><span class='turnover-item'>🔄 換手: 🟠 明顯換手 5.18%</span> <span class='signal-item'>📍 攻擊(籌碼拉升中)</span></span><span class='reason-item reason-beta reason-normal'>⚡ Beta: 中低波動 (0.76)</span></div></details></td></tr></tbody></table></div>
     <div class='tracking-card'>
         <div role='button' tabindex='0' class='tracking-toggle js-tracking-toggle'>
             <span id='trackingIcon'>▶</span>
-            📋 追蹤中（今日低價尚未觸及 MA20）— 1 檔
+            📋 追蹤中（今日低價尚未觸及 MA20）— 10 檔
             <span style='font-size:0.8em;color:#9fa8da;font-weight:400;'>（點擊展開）</span>
         </div>
         <div id='trackingTableDiv' class='tracking-table-div'>
@@ -1480,19 +1928,163 @@ table td a:hover {
                     
             <tr>
                 <td>
-                    <a href='https://www.cmoney.tw/forum/stock/4973' target='_blank' class='stock-link-main'>4973</a>
-                    <a href='https://tw.stock.yahoo.com/quote/4973/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                    <a href='https://www.cmoney.tw/forum/stock/2327' target='_blank' class='stock-link-main'>2327</a>
+                    <a href='https://tw.stock.yahoo.com/quote/2327/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
                 </td>
-                <td style='color:#dc1e41;font-weight:700;'>廣穎<a href='https://www.wantgoo.com/stock/4973/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#dc1e41;font-weight:700;'>國巨*<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><br/><span style='display:inline-flex;flex-wrap:wrap;gap:2px;'><span style='background:#b71c1c;color:#ffcdd2;font-size:0.68em;font-weight:700;padding:1px 5px;border-radius:999px;white-space:nowrap;'>🏷️被動元件</span></span><a href='https://www.wantgoo.com/stock/2327/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>電子零組件業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-06-26</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>1045.0</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>974.12</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+2.6%</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/5347' target='_blank' class='stock-link-main'>5347</a>
+                    <a href='https://tw.stock.yahoo.com/quote/5347/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>世界<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><a href='https://www.wantgoo.com/stock/5347/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>半導體業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-06-30</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>193.5</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>183.5</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+4.6%</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>4</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/2408' target='_blank' class='stock-link-main'>2408</a>
+                    <a href='https://tw.stock.yahoo.com/quote/2408/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>南亞科<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><a href='https://www.wantgoo.com/stock/2408/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>半導體業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-06-29</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>409.5</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>414.93</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>-5.2%</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/8150' target='_blank' class='stock-link-main'>8150</a>
+                    <a href='https://tw.stock.yahoo.com/quote/8150/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>南茂<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><a href='https://www.wantgoo.com/stock/8150/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
                 <td style='color:#9fa8da;font-size:0.88em;'>半導體業</td>
                 <td style='color:#00ab5e;font-weight:700;'>2 天</td>
-                <td style='color:#90a4ae;font-size:0.9em;'>2026-05-20</td>
-                <td style='color:#90a4ae;'>2026-05-14</td>
-                <td style='color:#ff9800;font-weight:700;'>129.0</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-06-26</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>105.0</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>98.03</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+5.6%</span></td>
+                <td><span style='color:#ff9800;font-weight:700;'>1</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/6191' target='_blank' class='stock-link-main'>6191</a>
+                    <a href='https://tw.stock.yahoo.com/quote/6191/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>精成科<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><a href='https://www.wantgoo.com/stock/6191/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>電子零組件業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-06-30</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
                 <td style='color:#dc1e41;font-weight:700;'>108.0</td>
-                <td style='color:#ce93d8;font-weight:700;'>100.07</td>
-                <td style='color:#ef5350;font-weight:700;'>+7.4%</td>
-                <td style='color:#ef5350;font-weight:700;'>3</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>100.51</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+6.0%</span></td>
+                <td><span style='color:#ff9800;font-weight:700;'>1</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/3026' target='_blank' class='stock-link-main'>3026</a>
+                    <a href='https://tw.stock.yahoo.com/quote/3026/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>禾伸堂<br/><span style='display:inline-flex;flex-wrap:wrap;gap:2px;'><span style='background:#b71c1c;color:#ffcdd2;font-size:0.68em;font-weight:700;padding:1px 5px;border-radius:999px;white-space:nowrap;'>🏷️被動元件</span></span><a href='https://www.wantgoo.com/stock/3026/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>電子零組件業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-07-05</td>
+                <td style='color:#90a4ae;'>2026-07-03</td>
+                <td><span style='color:#ff9800;font-weight:700;'>988.0</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>988.0</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>789.46</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+6.3%</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/2344' target='_blank' class='stock-link-main'>2344</a>
+                    <a href='https://tw.stock.yahoo.com/quote/2344/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>華邦電<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><a href='https://www.wantgoo.com/stock/2344/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>半導體業</td>
+                <td style='color:#00ab5e;font-weight:700;'>2 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-06-25</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>184.5</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>189.32</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>-6.5%</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/8182' target='_blank' class='stock-link-main'>8182</a>
+                    <a href='https://tw.stock.yahoo.com/quote/8182/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>加高<br/><span style='display:inline-flex;flex-wrap:wrap;gap:2px;'><span style='background:#b71c1c;color:#ffcdd2;font-size:0.68em;font-weight:700;padding:1px 5px;border-radius:999px;white-space:nowrap;'>🏷️石英元件</span></span><a href='https://www.wantgoo.com/stock/8182/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>電子零組件業</td>
+                <td style='color:#00ab5e;font-weight:700;'>2 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-07-03</td>
+                <td style='color:#90a4ae;'>2026-07-03</td>
+                <td><span style='color:#ff9800;font-weight:700;'>60.7</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>59.0</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>51.17</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+8.3%</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/2484' target='_blank' class='stock-link-main'>2484</a>
+                    <a href='https://tw.stock.yahoo.com/quote/2484/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>希華<br/><span style='display:inline-flex;flex-wrap:wrap;gap:2px;'><span style='background:#b71c1c;color:#ffcdd2;font-size:0.68em;font-weight:700;padding:1px 5px;border-radius:999px;white-space:nowrap;'>🏷️石英元件</span></span><a href='https://www.wantgoo.com/stock/2484/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>電子零組件業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-07-05</td>
+                <td style='color:#90a4ae;'>2026-07-03</td>
+                <td><span style='color:#ff9800;font-weight:700;'>96.4</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>96.4</td>
+                <td><span style='color:#ce93d8;font-weight:700;'>69.52</span></td>
+                <td><span style='color:#ef5350;font-weight:700;'>+26.6%</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <a href='https://www.cmoney.tw/forum/stock/1303' target='_blank' class='stock-link-main'>1303</a>
+                    <a href='https://tw.stock.yahoo.com/quote/1303/technical-analysis' target='_blank' class='stock-link-sub' title='Yahoo技術分析'>📈</a>
+                </td>
+                <td style='color:#dc1e41;font-weight:700;'>南亞<span style='background:#1a237e;color:#82b1ff;font-size:0.72em;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px;'>🔥 社群</span><a href='https://www.wantgoo.com/stock/1303/technical-chart' target='_blank' class='stock-link-sub' title='Wantgoo技術圖'>📊</a></td>
+                <td style='color:#9fa8da;font-size:0.88em;'>塑膠工業</td>
+                <td style='color:#00ab5e;font-weight:700;'>1 天</td>
+                <td style='color:#90a4ae;font-size:0.9em;'>2026-07-05</td>
+                <td style='color:#90a4ae;'><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td style='color:#dc1e41;font-weight:700;'>197.0</td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#546e7a;font-size:0.85em;'>—</span></td>
+                <td><span style='color:#00ab5e;font-weight:700;'>0</span></td>
             </tr>
                 </tbody>
             </table>
@@ -1558,8 +2150,8 @@ function toggleTracking() {
                     pageLength: 25,
                     lengthMenu: [[10,25,50,-1],[10,25,50,'All']],
                     language: { search: '搜尋:', lengthMenu: '顯示 _MENU_ 檔' },
-                    autoWidth: true,
-                    scrollX: true,
+                    autoWidth: false,
+                    scrollX: false,
                     responsive: false,
                     columnDefs: [{ targets: '_all', orderable: true }]
                 });
@@ -1723,7 +2315,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 {targets:COL.SIGNAL,   visible:false},
                 {targets:COL.TRACK,    visible:false},
                 {targets:COL.BETA,     visible:false},
-                {targets:COL.STRATEGY, orderable:false, searchable:false},
+                {targets:COL.STRATEGY, orderable:false, searchable:false, visible:false},
                 {targets:COL.PE,       visible:false},
                 {targets:COL.FPE,      searchable:false},
                 {targets:'_all',       orderable:true, searchable:true}
