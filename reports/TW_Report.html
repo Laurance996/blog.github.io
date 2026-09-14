@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>台股每日報告 · 固定網址</title>
+    <style>
+        html, body { height: 100%; margin: 0; background: #0f1724; color: #e8eef7; font-family: "Segoe UI", "Noto Sans TC", sans-serif; }
+        .latest-bar {
+            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+            gap: 8px; padding: 10px 14px; background: #152033; border-bottom: 1px solid #24344d;
+            font-size: 14px;
+        }
+        .latest-title { font-weight: 700; }
+        #latest-status { opacity: 0.85; }
+        #latest-frame { display: block; width: 100%; height: calc(100% - 46px); border: 0; background: #fff; }
+        .report-latest-toast {
+            position: fixed; right: 16px; top: 56px; z-index: 40; padding: 8px 14px;
+            border-radius: 8px; background: #1a2332; color: #fff; font-size: 0.85rem; font-weight: 600;
+        }
+        noscript { display: block; padding: 24px; }
+        a { color: #8ab4ff; }
+    </style>
+</head>
+<body>
+    <div class="latest-bar">
+        <span class="latest-title">台股每日報告 · 固定網址</span>
+        <span id="latest-status">載入中…</span>
+    </div>
+    <iframe id="latest-frame" title="台股每日報告"></iframe>
+    <noscript>
+        <p>請開啟 JavaScript，或直接開啟 <a href="TW_Report_20260914.html">TW_Report_20260914.html</a>。</p>
+    </noscript>
+    <script>
+window.__LATEST_REPORT_CFG = {"prefix": "TW_Report_", "currentYmd": "", "runTime": "22:00", "pollSec": 60, "mode": "gateway", "fallback": "TW_Report_20260914.html"};
+(function() {
+    var cfg = window.__LATEST_REPORT_CFG || {};
+    var prefix = cfg.prefix || 'TW_Report_';
+    var loadedYmd = String(cfg.currentYmd || '');
+    var runParts = String(cfg.runTime || '22:00').split(':');
+    var runMinutes = (Number(runParts[0]) || 22) * 60 + (Number(runParts[1]) || 0);
+    var pollMs = Math.max(15000, (Number(cfg.pollSec) || 60) * 1000);
+    var isGateway = cfg.mode === 'gateway';
+    var fallbackHref = cfg.fallback || '';
+    var timer = null;
+
+    function taipeiNowParts() {
+        var fmt = new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Asia/Taipei',
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+        });
+        var parts = {};
+        fmt.formatToParts(new Date()).forEach(function(p) {
+            if (p.type !== 'literal') parts[p.type] = p.value;
+        });
+        return parts;
+    }
+    function taipeiCalendarDate() {
+        var p = taipeiNowParts();
+        return new Date(Date.UTC(Number(p.year), Number(p.month) - 1, Number(p.day)));
+    }
+    function ymdUTC(d) {
+        var y = d.getUTCFullYear();
+        var m = String(d.getUTCMonth() + 1).padStart(2, '0');
+        var day = String(d.getUTCDate()).padStart(2, '0');
+        return '' + y + m + day;
+    }
+    function prettyYmd(ymd) {
+        if (!ymd || ymd.length !== 8) return ymd || '';
+        return ymd.slice(0, 4) + '-' + ymd.slice(4, 6) + '-' + ymd.slice(6, 8);
+    }
+    function nthWeekdayBack(from, n) {
+        var d = new Date(from.getTime());
+        var seen = -1;
+        for (var i = 0; i < 21; i++) {
+            var w = d.getUTCDay();
+            if (w !== 0 && w !== 6) {
+                seen++;
+                if (seen >= n) return d;
+            }
+            d.setUTCDate(d.getUTCDate() - 1);
+        }
+        return d;
+    }
+    function hrefFor(ymd) {
+        return prefix + ymd + '.html';
+    }
+    function bust(href) {
+        return href + (href.indexOf('?') >= 0 ? '&' : '?') + 't=' + Date.now();
+    }
+    function setStatus(text) {
+        var el = document.getElementById('latest-status');
+        if (el) el.textContent = text;
+    }
+    function showToast(msg) {
+        var el = document.querySelector('.report-latest-toast');
+        if (!el) {
+            el = document.createElement('div');
+            el.className = 'report-latest-toast';
+            document.body.appendChild(el);
+        }
+        el.textContent = msg;
+        el.hidden = false;
+        clearTimeout(showToast._t);
+        showToast._t = setTimeout(function() { el.hidden = true; }, 3200);
+    }
+    function probe(href) {
+        if (location.protocol === 'file:') {
+            return Promise.resolve(false);
+        }
+        return fetch(href, { method: 'HEAD', cache: 'no-store' }).then(function(r) {
+            if (r.ok) return true;
+            if (r.status === 405 || r.status === 501) {
+                return fetch(href, { method: 'GET', cache: 'no-store' }).then(function(g) {
+                    return g.ok;
+                });
+            }
+            return false;
+        }).catch(function() { return false; });
+    }
+    function applyReport(href, ymd, announce) {
+        loadedYmd = ymd || loadedYmd;
+        if (isGateway) {
+            var frame = document.getElementById('latest-frame');
+            if (frame) frame.src = bust(href);
+            setStatus('目前：' + prettyYmd(loadedYmd) + '（到點自動刷新最新）');
+            if (announce) showToast('已載入 ' + prettyYmd(loadedYmd) + ' 報告');
+            return;
+        }
+        var path = location.pathname || '';
+        if (path.indexOf(href) >= 0) return;
+        if (announce) showToast('發現最新報告，正在開啟…');
+        location.assign(href);
+    }
+    function findLatest() {
+        var today = taipeiCalendarDate();
+        var chain = Promise.resolve(null);
+        for (var i = 0; i < 10; i++) {
+            (function(n) {
+                chain = chain.then(function(found) {
+                    if (found) return found;
+                    var ymd = ymdUTC(nthWeekdayBack(today, n));
+                    var href = hrefFor(ymd);
+                    return probe(href).then(function(ok) {
+                        return ok ? { href: href, ymd: ymd } : null;
+                    });
+                });
+            })(i);
+        }
+        return chain;
+    }
+    function shouldPollToday() {
+        var parts = taipeiNowParts();
+        var today = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+        var w = today.getUTCDay();
+        if (w === 0 || w === 6) return false;
+        var todayYmd = ymdUTC(today);
+        if (loadedYmd && loadedYmd >= todayYmd) return false;
+        var minutes = (Number(parts.hour) || 0) * 60 + (Number(parts.minute) || 0);
+        return minutes >= runMinutes;
+    }
+    function pollOnce() {
+        if (!shouldPollToday()) return;
+        var todayYmd = ymdUTC(taipeiCalendarDate());
+        var href = hrefFor(todayYmd);
+        setStatus('等待今日 ' + prettyYmd(todayYmd) + ' 報告…');
+        probe(href).then(function(ok) {
+            if (!ok) return;
+            applyReport(href, todayYmd, true);
+        });
+    }
+    function start() {
+        if (location.protocol === 'file:') return;
+        var boot = Promise.resolve(null);
+        if (isGateway && fallbackHref) {
+            boot = probe(fallbackHref).then(function(ok) {
+                if (!ok) return null;
+                var m = fallbackHref.match(/(\d{8})/);
+                return { href: fallbackHref, ymd: m ? m[1] : loadedYmd };
+            });
+        }
+        boot.then(function(found) {
+            if (found) return found;
+            if (isGateway) return findLatest();
+            return null;
+        }).then(function(found) {
+            if (found && isGateway) {
+                applyReport(found.href, found.ymd, false);
+            } else if (isGateway) {
+                setStatus('尚無報告，稍後自動重試');
+            }
+            pollOnce();
+            if (!timer) timer = setInterval(pollOnce, pollMs);
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
+    } else {
+        start();
+    }
+})();
+</script>
+</body>
+</html>
