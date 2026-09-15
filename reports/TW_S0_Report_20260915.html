@@ -3268,10 +3268,8 @@ window.__LATEST_REPORT_CFG = {"prefix": "TW_S0_Report_", "currentYmd": "20260915
             if (announce) showToast('已載入 ' + prettyYmd(loadedYmd) + ' 報告');
             return;
         }
-        var path = location.pathname || '';
-        if (path.indexOf(href) >= 0) return;
-        if (announce) showToast('發現最新報告，正在開啟…');
-        location.assign(href);
+        // 日期頁可能正用「昨天／前天」瀏覽；禁止強制跳到今日。
+        return;
     }
     function findLatest() {
         var today = taipeiCalendarDate();
@@ -3291,6 +3289,7 @@ window.__LATEST_REPORT_CFG = {"prefix": "TW_S0_Report_", "currentYmd": "20260915
         return chain;
     }
     function shouldPollToday() {
+        if (!isGateway) return false;
         var parts = taipeiNowParts();
         var today = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
         var w = today.getUTCDay();
@@ -3311,6 +3310,7 @@ window.__LATEST_REPORT_CFG = {"prefix": "TW_S0_Report_", "currentYmd": "20260915
         });
     }
     function start() {
+        if (!isGateway) return;
         if (location.protocol === 'file:') return;
         var boot = Promise.resolve(null);
         if (isGateway && fallbackHref) {
